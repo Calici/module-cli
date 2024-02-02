@@ -1,0 +1,39 @@
+.pagination-wrapper {
+  margin: 20px 0;
+}
+
+.pagination-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li.pagination-item {
+  margin: 0 10px;
+}
+
+.pagination-list button {
+  border-radius: 10px;
+  min-width: 30px;
+  height: 30px;
+}
+
+.pagination-list button span svg path {
+  fill: var(--dark);
+}
+
+.page-dark .pagination-list button,
+.page-dark.pagination-list button {
+  background: white;
+}
+
+.pagination-item:hover>button {
+  background: var(--main);
+  color: var(--dark);
+}
+
+.active.pagination-item>button {
+  background: var(--main);
+  color: white;
+  font-weight: bold;
+}

@@ -1,0 +1,29 @@
+.empty-list-container {
+  border-radius: 20px;
+  padding: 1rem;
+  text-align: center;
+}
+  
+.empty-list-desc {
+  border: 1px solid var(--gray);
+  background: white;
+  border-radius: 20px;
+  padding: 5rem;
+}
+
+.empty-list-desc img {
+  width: 200px;
+  opacity: 0.5;
+}
+
+.empty-list-desc p {
+  margin-top: 20px;
+  color: rgba(0,0,0,.3);
+  font-size: 20px;
+}
+
+@media(max-width:600px) {
+  .empty-list-desc {
+    padding: 5rem 1rem;
+  }
+}

@@ -1,0 +1,95 @@
+.message-box-background {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999999;
+
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  pointer-events: all;
+}
+
+.message-box {
+  background: white;
+  border-radius: 20px;
+  width: 350px;
+  height: 300px;
+  margin: auto;
+  padding: 2rem;
+
+  z-index: 999;
+
+  text-align: center;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+
+  pointer-events: all;
+  position  : relative;
+}
+
+.message-box.msgbox-middle{
+  width: 400px;
+}
+
+.message-box.msgbox-large{
+  width: 450px;
+  height: auto;
+}
+
+.message-box .popup-title {
+  font-size: 20px;
+}
+
+.message-box .popup-desc {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.message-box .popup-highlight {
+  margin: 10px 0;
+  color: var(--gradi2);
+}
+
+div.message-box button.popup-btn-close,
+div.message-box a.popup-btn-close {
+  border: 1px solid var(--dark);
+  background: white;
+  width: 100px;
+  height: 35px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark);
+}
+
+div.message-box button.popup-btn-close:hover,
+div.message-box a.popup-btn-close:hover {
+  background: var(--dark);
+  color: white;
+}
+
+@media(max-width:495px) {
+  .message-box,
+  .message-box.msgbox-middle,
+  .message-box.msgbox-large {
+    width: 320px;
+    padding: 1rem;
+  }
+
+  .message-box .popup-desc br {
+    display: none;
+  }
+
+  .message-box .popup-highlight {
+    font-size: 15px;
+  }
+}

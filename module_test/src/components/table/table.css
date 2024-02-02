@@ -1,0 +1,228 @@
+.component-table {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.component-table::-webkit-scrollbar {
+  height: 10px;
+}
+
+.component-table::-webkit-scrollbar-track {
+  background: var(--gray);
+  border-radius: 5rem;
+}
+
+.component-table::-webkit-scrollbar-thumb {
+  background: var(--dark);
+  border: 2px solid var(--gray);
+  border-radius: 5rem;
+}
+
+/* Header */
+.component-table>div.component-table-row {
+  border-bottom: 2px solid var(--dark);
+  border-radius: 0.5em 0.5em 0em 0em;
+  width: 100%;
+  padding: 0.5em 1em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.component-table>div.component-table-row p {
+  font-weight: bold;
+}
+
+.component-table>div.component-table-row .component-table-cell-sort p {
+  color: var(--dark);
+}
+
+/* Content */
+.component-table .pagination-container div.component-table-row {
+  width: 100%;
+  padding: 0.5em 1em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.component-table .pagination-container div.component-table-row:last-child {
+  border-radius: 0em 0em 0.5em 0.5em;
+}
+
+.component-table .pagination-container div.component-table-row:hover {
+  background: var(--gray);
+}
+
+/* Item of content */
+.component-table div.component-table-row div.component-table-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Sort */
+.component-table-cell-sort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.component-table div.component-table-cell-sort:hover p {
+  color: var(--main);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.component-table div.component-table-cell-sort:hover svg path {
+  fill: var(--main);
+  transition: 0.3s;
+}
+
+.sort-btn svg path {
+  fill: var(--main);
+}
+
+.component-table-cell .table-cell-content.zoomable p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.component-table-cell .table-cell-content.zoomable p:hover {
+  color: var(--main);
+}
+
+.component-table-cell>.table-cell-content.zoomable {
+  width: 95%;
+}
+
+.zoom-cell-content {
+  word-wrap: break-word;
+}
+
+.component-table-cell .table-cell-content.admet-zoomable {
+  text-align: center;
+  transition: 0.3s;
+}
+
+.component-table-cell .table-cell-content.admet-zoomable:hover {
+  color: var(--main);
+  cursor: pointer;
+}
+
+.admet-zoom {
+  margin-bottom: 20px;
+  display: block;
+  white-space: pre;
+  overflow-y: auto;
+}
+
+.admet-zoom::-webkit-scrollbar {
+  border: 1px solid var(--opacity-dark2);
+  border-radius: 5em;
+  width: 10px;
+  height: 10px;
+}
+
+.admet-zoom::-webkit-scrollbar-thumb {
+  background: var(--dark);
+  border-radius: 5em;
+}
+
+.admet-zoom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.message-box-admet-zoom {
+  width: 600px !important;
+  height: 600px !important;
+}
+
+.admet-item-block {
+  border-radius: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.admet-item-block:last-of-type {
+  margin-bottom: 0em;
+}
+
+.admet-item-title {
+  background: var(--dark);
+  border-radius: 10px;
+  margin-bottom: 1em;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  color: white;
+}
+
+.admet-item-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.admet-item-row>div {
+  border-bottom: 1px solid var(--dark);
+  padding: 0.5em 1em;
+}
+
+.admet-item-parameter {
+  width: calc(100% - 100px);
+  text-align: left;
+}
+
+.admet-item-parameter svg {
+  margin-right: 1em;
+}
+
+.admet-item-value {
+  border-left: 1px solid var(--gray);
+  width: 100px;
+}
+
+/* Accept item */
+.admet-item-parameter.accept svg path {
+  fill: var(--green);
+}
+
+.admet-item-value.accept {
+  color: var(--green);
+}
+
+/* Reject item */
+.admet-item-value.reject {
+  color: var(--warning);
+}
+
+.admet-item-parameter.reject svg path {
+  fill: var(--warning);
+}
+
+@media(max-width:800px) {
+  .message-box-admet-zoom {
+    width: 80vw !important;
+    height: 80vh !important;
+  }
+
+  .admet-item-row>div {
+    padding: 0.5em 0em;
+  }
+
+  .admet-item-parameter {
+    width: 100%;
+    border-right: none;
+    white-space: normal;
+  }
+
+  .admet-item-value {
+    display: none;
+  }
+}

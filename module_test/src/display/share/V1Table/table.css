@@ -1,0 +1,151 @@
+.zoom-close-button {
+  margin-top: 12 px;
+}
+
+.zoom-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 60%; /* Adjust this to control the width */
+  max-width: 300px; /* Max width of the popup */
+  min-width: 200px; /* Min width of the popup */
+  min-height: 200px;
+  max-height: 300px
+}
+
+div.zoom-cell-content p {
+  cursor: pointer !important;
+}
+
+div.zoom-cell-content p:hover {
+  color: var(--main)
+}
+
+
+.popup-btn-close {
+  border: 1px solid var(--dark);
+  background: white;
+  width: 100px;
+  height: 35px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark);
+}
+.popup-btn-close:hover {
+  background: var(--dark);
+  color: white;
+}
+
+/* .zoom-close-button {
+  text-align: right;
+} */
+
+.run-container .component-table {
+  background: var(--dark);
+  border-radius: 20px;
+  margin-top: 20px;
+  padding: 1rem;
+}
+
+.run-container .component-table::-webkit-scrollbar {
+  background: var(--gray);
+  border-radius: 5rem;
+  width: 10px;
+  height: 10px;
+}
+
+.run-container .component-table::-webkit-scrollbar-thumb {
+  border: 2px solid var(--gray);
+  background: var(--dark);
+  border-radius: 5rem;
+}
+
+.run-container .component-table>div.component-table-row {
+  background: white;
+}
+
+.run-container .component-table div.component-table-row div.component-table-cell:first-child {
+  min-width: 50px !important;
+  width: 50px !important;
+}
+
+
+.run-container .component-table p {
+  margin: 0;
+  color: var(--dark);
+  text-align: center;
+  cursor: default;
+}
+
+.run-container .pagination-container {
+  width: 100%;
+}
+
+.run-container .table-content {
+  border-bottom: 1px solid var(--dark);
+  background: white;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+.run-container .table-content p {
+  color: var(--dark);
+}
+
+/* Header of table */
+.run-container .component-table-cell {
+  min-width: calc(100% / 5);
+  width: calc(100% / 4);
+}
+
+.component-table .component-table-cell>div {
+  width: 100%;
+}
+.component-table-cell div.table-cell-content.smiles p,
+.component-table .component-table-cell>div>p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+}
+
+.component-table-cell div.table-cell-content.smiles p {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.component-table-cell div.table-cell-content.smiles:hover p {
+  color: var(--main);
+}
+
+@media(max-width:1280px) {
+  .run-container .component-table .component-table-row,
+  .run-container .pagination-container {
+    width: auto;
+  }
+
+  .socket-table.component-table .component-table-cell {
+    width: 300px !important;
+  }
+}
+
+@media(max-width:800px) {
+  .socket-table.component-table .component-table-cell {
+    width: 200px !important;
+    font-size: 14px;
+  }
+}
+
+@media(max-width:600px) {
+  .socket-table.component-table .component-table-cell {
+    width: 150px !important;
+  }
+}

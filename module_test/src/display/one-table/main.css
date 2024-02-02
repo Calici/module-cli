@@ -1,0 +1,137 @@
+.simul-status {
+  background: var(--dark);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.result-table-message .all-socket-message {
+  background: var(--dark2);
+  height: 110px;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.result-table-message>div::-webkit-scrollbar {
+  width: 5px;
+}
+
+.result-table-message>div::-webkit-scrollbar-track {
+  background: var(--dark3);
+}
+
+.result-table-message>div::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5rem;
+}
+
+.result-table-message .all-socket-message>p {
+  font-family: 'Exo';
+  color: var(--main);
+  font-size: 15px;
+}
+
+.simul-progress {
+  border-radius: 5rem;
+  margin: 20px 0px;
+}
+
+.simul-progress .progressbar {
+  background: var(--dark2);
+  border-radius: 5px;
+  width: 100%;
+  height: 36px;
+}
+
+.simul-progress .progressbar-per {
+  border: 1px solid var(--main);
+  background-color: var(--main);
+  background-image: linear-gradient(
+    -45deg, 
+    rgba(255, 255, 255, 0.3) 25%,
+    rgba(255, 154, 26, 0) 25%,
+    rgba(255, 154, 26, 0) 50%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.3) 75%,
+    rgba(255, 154, 26, 0) 75%
+    );
+  background-size: 20px 20px;
+  box-shadow: inset 0px 10px 0px rgba(255, 255, 255, 0.2);
+  animation: move 2.5s linear infinite;
+}
+
+@keyframes move {
+  0%   { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+.simul-progress.pause .progressbar-per,
+.simul-progress.done .progressbar-per {
+  animation-play-state: paused;
+}
+
+.simul-progress .progressbar-num,
+.simul-progress .progressbar-num>span {
+  font-weight: bold;
+}
+
+.socket-controls.one-table {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.socket-controls.one-table button {
+  background: var(--main);
+  border-radius: 5rem;
+  width: 150px;
+  height: 40px;
+}
+
+.socket-controls.one-table button:last-of-type {
+  margin-left: 10px;
+}
+
+.socket-controls.one-table button.simul-btn:hover {
+  color: white;
+}
+
+.socket-controls.one-table button.simul-btn svg {
+  margin-right: 10px;
+}
+
+.socket-controls.one-table button.simul-btn:hover svg path {
+  fill: white;
+  transition: 0.3s;
+}
+
+.socket-controls.one-table button:disabled,
+.socket-controls.one-table button:disabled:hover {
+  background: var(--dark2);
+  color: rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.socket-controls.one-table button:disabled svg path,
+.socket-controls.one-table button:disabled:hover svg path {
+  fill: rgba(255, 255, 255, 0.2);
+}
+
+.one-table.main-table {
+  background: var(--dark);
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 1rem;
+  color: white;
+}
+
+.no-result-container {
+  background: var(--dark);
+  margin-top: 20px;
+}
+
+@media(max-width:495px) {
+  .socket-controls.one-table button {
+    width: 120px;
+  }
+}
