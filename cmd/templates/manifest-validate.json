@@ -1,0 +1,3502 @@
+{
+  "$ref": "#/definitions/ManifestT",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ConditionT<\"0.0\">": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "const": "0.0",
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<\"1.0\">": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "const": "1.0",
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<(number|ExprOp)>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "$ref": "#/definitions/ExprOp"
+              }
+            ]
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<OptionsT<any>>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "$ref": "#/definitions/OptionsT%3Cany%3E"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<TableHeadersT>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "$ref": "#/definitions/TableHeadersT"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<TableRowsT>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "$ref": "#/definitions/TableRowsT"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<[number,number,number]>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "type": "array"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<any>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<def-interface-432732419-53-182-432732419-0-528[]>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/definitions/TableTypes"
+            },
+            "type": "array"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<number>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<string>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<string[]>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConditionT<string[][]>": {
+      "additionalProperties": false,
+      "properties": {
+        "cases": {
+          "additionalProperties": {
+            "items": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/LazyDataContainer_FormQueryT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "value",
+        "cases"
+      ],
+      "type": "object"
+    },
+    "ConvertT": {
+      "additionalProperties": false,
+      "properties": {
+        "api": {
+          "type": "string"
+        },
+        "params": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "target": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "api",
+        "params",
+        "target"
+      ],
+      "type": "object"
+    },
+    "Display_ComponentsT<Display_Image_ComponentT>": {
+      "items": {
+        "$ref": "#/definitions/Display_Image_ComponentT"
+      },
+      "type": "array"
+    },
+    "Display_ComponentsT<Display_NGL_ComponentT>": {
+      "items": {
+        "$ref": "#/definitions/Display_NGL_ComponentT"
+      },
+      "type": "array"
+    },
+    "Display_Form_PageT": {
+      "$ref": "#/definitions/Display_PageT%3C%22form%22%2C%5B%5D%3E"
+    },
+    "Display_Image_ComponentT": {
+      "$ref": "#/definitions/Display_Image_Component_ImageMainT"
+    },
+    "Display_Image_Component_ImageMainT": {
+      "additionalProperties": false,
+      "properties": {
+        "params": {
+          "$ref": "#/definitions/Display_Image_Component_Params_ImageT"
+        },
+        "type": {
+          "const": "image-main",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "params"
+      ],
+      "type": "object"
+    },
+    "Display_Image_Component_Params_ImageT": {
+      "additionalProperties": false,
+      "properties": {
+        "src": {
+          "$ref": "#/definitions/LazyDataContainerT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "src"
+      ],
+      "type": "object"
+    },
+    "Display_Image_PageT": {
+      "$ref": "#/definitions/Display_PageT%3C%22image%22%2CDisplay_ComponentsT%3CDisplay_Image_ComponentT%3E%3E"
+    },
+    "Display_NGL_ComponentT": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Display_NGL_Component_BoxT"
+        },
+        {
+          "$ref": "#/definitions/Display_NGL_Component_FileT"
+        }
+      ]
+    },
+    "Display_NGL_Component_BoxT": {
+      "additionalProperties": false,
+      "properties": {
+        "params": {
+          "$ref": "#/definitions/Display_NGL_Component_Params_BoxT"
+        },
+        "type": {
+          "const": "box",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "params"
+      ],
+      "type": "object"
+    },
+    "Display_NGL_Component_FileT": {
+      "additionalProperties": false,
+      "properties": {
+        "params": {
+          "$ref": "#/definitions/Display_NGL_Component_Params_FileT"
+        },
+        "type": {
+          "const": "file",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "params"
+      ],
+      "type": "object"
+    },
+    "Display_NGL_Component_Params_BoxT": {
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "$ref": "#/definitions/LazyDataContainerT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+        },
+        "position": {
+          "$ref": "#/definitions/LazyDataContainerT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+        },
+        "size": {
+          "$ref": "#/definitions/LazyDataContainerT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+        }
+      },
+      "required": [
+        "position",
+        "size"
+      ],
+      "type": "object"
+    },
+    "Display_NGL_Component_Params_FileT": {
+      "additionalProperties": false,
+      "properties": {
+        "controller": {
+          "type": "boolean"
+        },
+        "default_view": {
+          "additionalProperties": {
+            "$ref": "#/definitions/Display_NGL_ViewSettingsT"
+          },
+          "type": "object"
+        },
+        "file": {
+          "$ref": "#/definitions/LazyDataContainerT%3Cstring%3E"
+        },
+        "name": {
+          "$ref": "#/definitions/LazyDataContainerT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "file",
+        "controller"
+      ],
+      "type": "object"
+    },
+    "Display_NGL_PageT": {
+      "$ref": "#/definitions/Display_PageT%3C%22ngl%22%2CDisplay_ComponentsT%3CDisplay_NGL_ComponentT%3E%3E"
+    },
+    "Display_NGL_ViewSettingsT": {
+      "additionalProperties": false,
+      "properties": {
+        "params": {},
+        "type": {
+          "enum": [
+            "cartoon",
+            "surface"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "params"
+      ],
+      "type": "object"
+    },
+    "Display_PageT<\"form\",[]>": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "maxItems": 0,
+          "minItems": 0,
+          "type": "array"
+        },
+        "display": {
+          "const": "form",
+          "type": "string"
+        },
+        "fields": {
+          "$ref": "#/definitions/FieldsTypeT"
+        }
+      },
+      "required": [
+        "display"
+      ],
+      "type": "object"
+    },
+    "Display_PageT<\"image\",Display_ComponentsT<Display_Image_ComponentT>>": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "$ref": "#/definitions/Display_ComponentsT%3CDisplay_Image_ComponentT%3E"
+        },
+        "display": {
+          "const": "image",
+          "type": "string"
+        },
+        "fields": {
+          "$ref": "#/definitions/FieldsTypeT"
+        }
+      },
+      "required": [
+        "display"
+      ],
+      "type": "object"
+    },
+    "Display_PageT<\"ngl\",Display_ComponentsT<Display_NGL_ComponentT>>": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "$ref": "#/definitions/Display_ComponentsT%3CDisplay_NGL_ComponentT%3E"
+        },
+        "display": {
+          "const": "ngl",
+          "type": "string"
+        },
+        "fields": {
+          "$ref": "#/definitions/FieldsTypeT"
+        }
+      },
+      "required": [
+        "display"
+      ],
+      "type": "object"
+    },
+    "Display_PagesT<(Display_Image_PageT|Display_NGL_PageT|Display_Form_PageT)>": {
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/Display_Image_PageT"
+          },
+          {
+            "$ref": "#/definitions/Display_NGL_PageT"
+          },
+          {
+            "$ref": "#/definitions/Display_Form_PageT"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "DownloadStructT": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/definitions/DownloadStructT"
+          },
+          "type": "object"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "not": {}
+        }
+      ]
+    },
+    "ExprOp": {
+      "enum": [
+        "*",
+        "+",
+        "/",
+        "-",
+        "%"
+      ],
+      "type": "string"
+    },
+    "FieldTypeT": {
+      "type": "string"
+    },
+    "FieldsTypeT": {
+      "items": {
+        "$ref": "#/definitions/FieldTypeT"
+      },
+      "type": "array"
+    },
+    "LazyContainerT<\"condition\",ConditionT<\"0.0\">>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3C%220.0%22%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<\"1.0\">>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3C%221.0%22%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<(number|ExprOp)>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3C(number%7CExprOp)%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<OptionsT<any>>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3COptionsT%3Cany%3E%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<TableHeadersT>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3CTableHeadersT%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<TableRowsT>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3CTableRowsT%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<[number,number,number]>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<any>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3Cany%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<def-interface-432732419-53-182-432732419-0-528[]>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<number>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3Cnumber%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<string>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3Cstring%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<string[]>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3Cstring%5B%5D%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"condition\",ConditionT<string[][]>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ConditionT%3Cstring%5B%5D%5B%5D%3E"
+        },
+        "type": {
+          "const": "condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",\"0.0\">": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "const": "0.0",
+          "type": "string"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",\"1.0\">": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "const": "1.0",
+          "type": "string"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",(ExprOp|number|number[])>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ExprOp"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            }
+          ]
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",(number|ExprOp)>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "#/definitions/ExprOp"
+            }
+          ]
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",OptionsT<any>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OptionsT%3Cany%3E"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",TableHeadersT>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/TableHeadersT"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",TableRowsT>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/TableRowsT"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",[number,number,number]>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",any>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {},
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",def-interface-432732419-53-182-432732419-0-528[]>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/TableTypes"
+          },
+          "type": "array"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",number>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "number"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",string>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",string[]>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"data\",string[][]>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "type": {
+          "const": "data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"expr\",(def-alias-1147036224-788-857-1147036224-0-3777<(def-alias-1147036224-739-788-1147036224-0-3777|number|number[])>|def-alias-1147036224-1095-1197-1147036224-0-3777<(number|number[])>)[]>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/LazyDataContainer_NormalT%3C(ExprOp%7Cnumber%7Cnumber%5B%5D)%3E"
+              },
+              {
+                "$ref": "#/definitions/LazyDataContainer_FormQueryT%3C(number%7Cnumber%5B%5D)%3E"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "const": "expr",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"form\",string>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "type": {
+          "const": "form",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<\"0.0\">>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3C%220.0%22%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<\"1.0\">>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3C%221.0%22%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<(number|ExprOp)>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3C(number%7CExprOp)%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<(number|number[])>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3C(number%7Cnumber%5B%5D)%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<OptionsT<any>>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3COptionsT%3Cany%3E%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<TableHeadersT>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3CTableHeadersT%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<TableRowsT>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3CTableRowsT%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<[number,number,number]>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<any>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3Cany%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<def-interface-432732419-53-182-432732419-0-528[]>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<number>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3Cnumber%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<string>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3Cstring%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<string[]>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3Cstring%5B%5D%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyContainerT<\"query\",QueryT<string[][]>>": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/QueryT%3Cstring%5B%5D%5B%5D%3E"
+        },
+        "type": {
+          "const": "query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LazyDataContainerT<(number|ExprOp)>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3C(number%7CExprOp)%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3C(number%7CExprOp)%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3C(number%7CExprOp)%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_FormT"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_ExprT"
+        }
+      ]
+    },
+    "LazyDataContainerT<[number,number,number]>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_FormT"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_ExprT"
+        }
+      ]
+    },
+    "LazyDataContainerT<string>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3Cstring%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3Cstring%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3Cstring%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_FormT"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_ExprT"
+        }
+      ]
+    },
+    "LazyDataContainer_ConditionT<\"0.0\">": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3C%220.0%22%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<\"1.0\">": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3C%221.0%22%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<(number|ExprOp)>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3C(number%7CExprOp)%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<OptionsT<any>>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3COptionsT%3Cany%3E%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<TableHeadersT>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3CTableHeadersT%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<TableRowsT>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3CTableRowsT%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<[number,number,number]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<any>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3Cany%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<def-interface-432732419-53-182-432732419-0-528[]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<number>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3Cnumber%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<string>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3Cstring%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<string[]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3Cstring%5B%5D%3E%3E"
+    },
+    "LazyDataContainer_ConditionT<string[][]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22condition%22%2CConditionT%3Cstring%5B%5D%5B%5D%3E%3E"
+    },
+    "LazyDataContainer_ExprT": {
+      "$ref": "#/definitions/LazyContainerT%3C%22expr%22%2C(def-alias-1147036224-788-857-1147036224-0-3777%3C(def-alias-1147036224-739-788-1147036224-0-3777%7Cnumber%7Cnumber%5B%5D)%3E%7Cdef-alias-1147036224-1095-1197-1147036224-0-3777%3C(number%7Cnumber%5B%5D)%3E)%5B%5D%3E"
+    },
+    "LazyDataContainer_FormQueryT<(number|number[])>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3C(number%7Cnumber%5B%5D)%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_FormT"
+        }
+      ]
+    },
+    "LazyDataContainer_FormQueryT<string>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3Cstring%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_FormT"
+        }
+      ]
+    },
+    "LazyDataContainer_FormT": {
+      "$ref": "#/definitions/LazyContainerT%3C%22form%22%2Cstring%3E"
+    },
+    "LazyDataContainer_NormalT<\"0.0\">": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2C%220.0%22%3E"
+    },
+    "LazyDataContainer_NormalT<\"1.0\">": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2C%221.0%22%3E"
+    },
+    "LazyDataContainer_NormalT<(ExprOp|number|number[])>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2C(ExprOp%7Cnumber%7Cnumber%5B%5D)%3E"
+    },
+    "LazyDataContainer_NormalT<(number|ExprOp)>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2C(number%7CExprOp)%3E"
+    },
+    "LazyDataContainer_NormalT<OptionsT<any>>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2COptionsT%3Cany%3E%3E"
+    },
+    "LazyDataContainer_NormalT<TableHeadersT>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2CTableHeadersT%3E"
+    },
+    "LazyDataContainer_NormalT<TableRowsT>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2CTableRowsT%3E"
+    },
+    "LazyDataContainer_NormalT<[number,number,number]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2C%5Bnumber%2Cnumber%2Cnumber%5D%3E"
+    },
+    "LazyDataContainer_NormalT<any>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2Cany%3E"
+    },
+    "LazyDataContainer_NormalT<def-interface-432732419-53-182-432732419-0-528[]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E"
+    },
+    "LazyDataContainer_NormalT<number>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2Cnumber%3E"
+    },
+    "LazyDataContainer_NormalT<string>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2Cstring%3E"
+    },
+    "LazyDataContainer_NormalT<string[]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2Cstring%5B%5D%3E"
+    },
+    "LazyDataContainer_NormalT<string[][]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22data%22%2Cstring%5B%5D%5B%5D%3E"
+    },
+    "LazyDataContainer_QueryT<\"0.0\">": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3C%220.0%22%3E%3E"
+    },
+    "LazyDataContainer_QueryT<\"1.0\">": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3C%221.0%22%3E%3E"
+    },
+    "LazyDataContainer_QueryT<(number|ExprOp)>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3C(number%7CExprOp)%3E%3E"
+    },
+    "LazyDataContainer_QueryT<(number|number[])>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3C(number%7Cnumber%5B%5D)%3E%3E"
+    },
+    "LazyDataContainer_QueryT<OptionsT<any>>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3COptionsT%3Cany%3E%3E%3E"
+    },
+    "LazyDataContainer_QueryT<TableHeadersT>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3CTableHeadersT%3E%3E"
+    },
+    "LazyDataContainer_QueryT<TableRowsT>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3CTableRowsT%3E%3E"
+    },
+    "LazyDataContainer_QueryT<[number,number,number]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3C%5Bnumber%2Cnumber%2Cnumber%5D%3E%3E"
+    },
+    "LazyDataContainer_QueryT<any>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3Cany%3E%3E"
+    },
+    "LazyDataContainer_QueryT<def-interface-432732419-53-182-432732419-0-528[]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E%3E"
+    },
+    "LazyDataContainer_QueryT<number>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3Cnumber%3E%3E"
+    },
+    "LazyDataContainer_QueryT<string>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3Cstring%3E%3E"
+    },
+    "LazyDataContainer_QueryT<string[]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3Cstring%5B%5D%3E%3E"
+    },
+    "LazyDataContainer_QueryT<string[][]>": {
+      "$ref": "#/definitions/LazyContainerT%3C%22query%22%2CQueryT%3Cstring%5B%5D%5B%5D%3E%3E"
+    },
+    "LazyWidgetDataT<\"0.0\">": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3C%220.0%22%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3C%220.0%22%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3C%220.0%22%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<\"1.0\">": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3C%221.0%22%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3C%221.0%22%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3C%221.0%22%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<OptionsT<any>>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3COptionsT%3Cany%3E%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3COptionsT%3Cany%3E%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3COptionsT%3Cany%3E%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<TableHeadersT>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3CTableHeadersT%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3CTableHeadersT%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3CTableHeadersT%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<TableRowsT>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3CTableRowsT%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3CTableRowsT%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3CTableRowsT%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<any>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3Cany%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3Cany%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3Cany%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<def-interface-432732419-53-182-432732419-0-528[]>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<number>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3Cnumber%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3Cnumber%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3Cnumber%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<string>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3Cstring%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3Cstring%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3Cstring%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<string[]>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3Cstring%5B%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3Cstring%5B%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3Cstring%5B%5D%3E"
+        }
+      ]
+    },
+    "LazyWidgetDataT<string[][]>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LazyDataContainer_ConditionT%3Cstring%5B%5D%5B%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_NormalT%3Cstring%5B%5D%5B%5D%3E"
+        },
+        {
+          "$ref": "#/definitions/LazyDataContainer_QueryT%3Cstring%5B%5D%5B%5D%3E"
+        }
+      ]
+    },
+    "ManifestT": {
+      "additionalProperties": false,
+      "properties": {
+        "download_struct": {
+          "$ref": "#/definitions/Manifest_DownloadStructT"
+        },
+        "in_nodes": {
+          "$ref": "#/definitions/Manifest_NodeT"
+        },
+        "out_nodes": {
+          "$ref": "#/definitions/Manifest_NodeT"
+        },
+        "params": {
+          "$ref": "#/definitions/Manifest_ParamsT"
+        },
+        "params_render": {
+          "$ref": "#/definitions/Manifest_ParamsRenderT"
+        },
+        "results": {
+          "$ref": "#/definitions/Manifest_ResultsT"
+        },
+        "results_render": {
+          "$ref": "#/definitions/Manifest_ResultsRenderT"
+        },
+        "run_count": {
+          "$ref": "#/definitions/MultiplierT"
+        },
+        "token_prices": {
+          "$ref": "#/definitions/MultiplierT"
+        },
+        "version": {
+          "const": "0.0",
+          "type": "string"
+        }
+      },
+      "required": [
+        "params",
+        "params_render",
+        "results_render",
+        "results",
+        "run_count",
+        "token_prices",
+        "in_nodes",
+        "out_nodes",
+        "download_struct",
+        "version"
+      ],
+      "type": "object"
+    },
+    "Manifest_DownloadStructT": {
+      "additionalProperties": false,
+      "properties": {
+        "attach": {
+          "items": {
+            "$ref": "#/definitions/ConvertT"
+          },
+          "type": "array"
+        },
+        "structure": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "additionalProperties": {
+                "$ref": "#/definitions/DownloadStructT"
+              },
+              "type": "object"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "attach"
+      ],
+      "type": "object"
+    },
+    "Manifest_NodeT": {
+      "additionalProperties": {
+        "$ref": "#/definitions/NodeTypeT"
+      },
+      "type": "object"
+    },
+    "Manifest_ParamT": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Manifest_Param_NoChildT"
+        },
+        {
+          "$ref": "#/definitions/Manifest_Param_ChildT"
+        }
+      ]
+    },
+    "Manifest_Param_BoolT": {
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "boolean"
+        },
+        "type": {
+          "const": "bool",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "default"
+      ],
+      "type": "object"
+    },
+    "Manifest_Param_ChildT": {
+      "$ref": "#/definitions/Manifest_Param_ListT%3C(Manifest_Param_IntT%7CManifest_Param_FloatT%7CManifest_Param_StrT)%3E"
+    },
+    "Manifest_Param_DictT": {
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "object"
+        },
+        "type": {
+          "const": "dict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "default"
+      ],
+      "type": "object"
+    },
+    "Manifest_Param_FloatT": {
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "number"
+        },
+        "type": {
+          "const": "float",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "default"
+      ],
+      "type": "object"
+    },
+    "Manifest_Param_IntT": {
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "number"
+        },
+        "type": {
+          "const": "int",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "default"
+      ],
+      "type": "object"
+    },
+    "Manifest_Param_ListT<(Manifest_Param_IntT|Manifest_Param_FloatT|Manifest_Param_StrT)>": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "int",
+                "float",
+                "str"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "default": {
+          "items": {
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "const": "list",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "default",
+        "child"
+      ],
+      "type": "object"
+    },
+    "Manifest_Param_NoChildT": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Manifest_Param_IntT"
+        },
+        {
+          "$ref": "#/definitions/Manifest_Param_FloatT"
+        },
+        {
+          "$ref": "#/definitions/Manifest_Param_StrT"
+        },
+        {
+          "$ref": "#/definitions/Manifest_Param_BoolT"
+        },
+        {
+          "$ref": "#/definitions/Manifest_Param_DictT"
+        },
+        {
+          "$ref": "#/definitions/Manifest_Param_PathT"
+        }
+      ]
+    },
+    "Manifest_Param_PathT": {
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "type": {
+          "const": "path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "default"
+      ],
+      "type": "object"
+    },
+    "Manifest_Param_StrT": {
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "type": {
+          "const": "str",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "default"
+      ],
+      "type": "object"
+    },
+    "Manifest_ParamsRenderT": {
+      "additionalProperties": false,
+      "properties": {
+        "advanced": {
+          "$ref": "#/definitions/ParamsRender_DisplayT"
+        },
+        "overrides": {
+          "$ref": "#/definitions/ParamsRender_OverridesT"
+        },
+        "simple": {
+          "$ref": "#/definitions/ParamsRender_DisplayT"
+        }
+      },
+      "required": [
+        "overrides",
+        "simple",
+        "advanced"
+      ],
+      "type": "object"
+    },
+    "Manifest_ParamsT": {
+      "additionalProperties": {
+        "$ref": "#/definitions/Manifest_ParamT"
+      },
+      "type": "object"
+    },
+    "Manifest_ResultsRenderT": {
+      "additionalProperties": false,
+      "properties": {
+        "advanced": {
+          "$ref": "#/definitions/ParamsRender_DisplayT"
+        },
+        "overrides": {
+          "$ref": "#/definitions/ParamsRender_OverridesT"
+        },
+        "params": {
+          "$ref": "#/definitions/Manifest_ParamsT"
+        },
+        "simple": {
+          "$ref": "#/definitions/ParamsRender_DisplayT"
+        }
+      },
+      "required": [
+        "params",
+        "overrides",
+        "simple",
+        "advanced"
+      ],
+      "type": "object"
+    },
+    "Manifest_ResultsT": {
+      "additionalProperties": {
+        "$ref": "#/definitions/Manifest_ParamT"
+      },
+      "type": "object"
+    },
+    "MultiplierContentT": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/LazyDataContainerT%3C(number%7CExprOp)%3E"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "type": "object"
+    },
+    "MultiplierT": {
+      "items": {
+        "$ref": "#/definitions/MultiplierContentT"
+      },
+      "type": "array"
+    },
+    "NodeTypeT": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/Node_NodeTypeT"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "NodeType_ListTypeT": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "$ref": "#/definitions/Node_NodeTypeT"
+        },
+        "type": {
+          "const": "List",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "child"
+      ],
+      "type": "object"
+    },
+    "NodeType_NormalTypeT": {
+      "type": "string"
+    },
+    "NodeType_OptionalT": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "$ref": "#/definitions/Node_NodeTypeT"
+        },
+        "type": {
+          "const": "Optional",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "child"
+      ],
+      "type": "object"
+    },
+    "NodeType_TupleT": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "items": {
+            "$ref": "#/definitions/Node_NodeTypeT"
+          },
+          "type": "array"
+        },
+        "type": {
+          "const": "Tuple",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "child"
+      ],
+      "type": "object"
+    },
+    "NodeType_UnionT": {
+      "additionalProperties": false,
+      "properties": {
+        "child": {
+          "items": {
+            "$ref": "#/definitions/Node_NodeTypeT"
+          },
+          "type": "array"
+        },
+        "type": {
+          "const": "Union",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "child"
+      ],
+      "type": "object"
+    },
+    "Node_NodeTypeT": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/NodeType_NormalTypeT"
+        },
+        {
+          "$ref": "#/definitions/NodeType_ListTypeT"
+        },
+        {
+          "$ref": "#/definitions/NodeType_TupleT"
+        },
+        {
+          "$ref": "#/definitions/NodeType_UnionT"
+        },
+        {
+          "$ref": "#/definitions/NodeType_OptionalT"
+        }
+      ]
+    },
+    "OptionT<any>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Option_NameIdT%3Cany%3E"
+        },
+        {
+          "$ref": "#/definitions/Option_NormalT"
+        }
+      ]
+    },
+    "Option_NameIdT<any>": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {},
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "id"
+      ],
+      "type": "object"
+    },
+    "Option_NormalT": {
+      "type": "string"
+    },
+    "OptionsT<any>": {
+      "items": {
+        "$ref": "#/definitions/OptionT%3Cany%3E"
+      },
+      "type": "array"
+    },
+    "ParamsRender_DisplayT": {
+      "$ref": "#/definitions/Display_PagesT%3C(Display_Image_PageT%7CDisplay_NGL_PageT%7CDisplay_Form_PageT)%3E"
+    },
+    "ParamsRender_Manifest_OverrideT": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "type": "null"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_CheckBox_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "checkbox",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_ThreadGPUWidget_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "thread-gpu-widget",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_LigandSelect_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "ligand-select",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_CheckBoxTable_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "checkbox-table",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_TextArea_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "textarea",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_Number_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "number",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_Text_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_List_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "list",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_Dropdown_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "dropdown",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/LazyWidgetDataT%3Cany%3E"
+            },
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "$ref": "#/definitions/Widget_PDFFile_ParamsT"
+            },
+            "readOnly": {
+              "type": "boolean"
+            },
+            "widget": {
+              "const": "pdf-file",
+              "type": "string"
+            }
+          },
+          "required": [
+            "params",
+            "widget"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "ParamsRender_OverridesT": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ParamsRender_Manifest_OverrideT"
+      },
+      "type": "object"
+    },
+    "QueryT": {
+      "additionalProperties": false,
+      "properties": {
+        "endpoint": {
+          "type": "string"
+        },
+        "method": {
+          "const": "GET",
+          "type": "string"
+        },
+        "params": {},
+        "requestType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "method",
+        "endpoint",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<\"0.0\">": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "const": "0.0",
+          "type": "string"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<\"1.0\">": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "const": "1.0",
+          "type": "string"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<(number|ExprOp)>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "#/definitions/ExprOp"
+            }
+          ]
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<(number|number[])>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            }
+          ]
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<OptionsT<any>>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "$ref": "#/definitions/OptionsT%3Cany%3E"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<TableHeadersT>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "$ref": "#/definitions/TableHeadersT"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<TableRowsT>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "$ref": "#/definitions/TableRowsT"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<[number,number,number]>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<any>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {},
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<def-interface-432732419-53-182-432732419-0-528[]>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "items": {
+            "$ref": "#/definitions/TableTypes"
+          },
+          "type": "array"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<number>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "type": "number"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<string>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "type": "string"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<string[]>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "QueryT<string[][]>": {
+      "additionalProperties": false,
+      "properties": {
+        "baseUrl": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallback": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "params": {
+          "type": "object"
+        },
+        "postProcess": {
+          "type": "string"
+        },
+        "requestType": {
+          "const": "GET",
+          "type": "string"
+        },
+        "responseType": {
+          "const": "blob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endpoint",
+        "requestType",
+        "params"
+      ],
+      "type": "object"
+    },
+    "TableCellT": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "#/definitions/TableCell_ButtonI"
+        },
+        {
+          "$ref": "#/definitions/TableCell_ZoomableI"
+        },
+        {
+          "$ref": "#/definitions/TableCell_ImgI"
+        }
+      ]
+    },
+    "TableCell_ButtonI": {
+      "additionalProperties": false,
+      "properties": {
+        "buttonText": {
+          "type": "string"
+        },
+        "hiddenText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "buttonText",
+        "hiddenText"
+      ],
+      "type": "object"
+    },
+    "TableCell_ImgI": {
+      "additionalProperties": false,
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "textString": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "src",
+        "textString"
+      ],
+      "type": "object"
+    },
+    "TableCell_ZoomableI": {
+      "additionalProperties": false,
+      "properties": {
+        "shortText": {
+          "type": "string"
+        },
+        "zoomedText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "shortText"
+      ],
+      "type": "object"
+    },
+    "TableHeaderT": {
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/TableTypeT"
+        }
+      },
+      "required": [
+        "displayName",
+        "type"
+      ],
+      "type": "object"
+    },
+    "TableHeadersT": {
+      "items": {
+        "$ref": "#/definitions/TableHeaderT"
+      },
+      "type": "array"
+    },
+    "TableRowT": {
+      "items": {
+        "$ref": "#/definitions/TableCellT"
+      },
+      "type": "array"
+    },
+    "TableRowsT": {
+      "items": {
+        "$ref": "#/definitions/TableRowT"
+      },
+      "type": "array"
+    },
+    "TableTypeT": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/TableType_ImageT"
+        },
+        {
+          "$ref": "#/definitions/TableType_ZoomableSortableT"
+        },
+        {
+          "$ref": "#/definitions/TableType_Button_RedirectT"
+        },
+        {
+          "$ref": "#/definitions/TableType_Button_APIT"
+        },
+        {
+          "$ref": "#/definitions/TableType_InputT"
+        }
+      ]
+    },
+    "TableType_Button_APIT": {
+      "$ref": "#/definitions/TableType_GenericT%3C%22button%22%2Cstructure-432762210-2165-2204-432762210-2134-2205-432762210-1962-2205-432762210-0-3093%3E"
+    },
+    "TableType_Button_RedirectT": {
+      "$ref": "#/definitions/TableType_GenericT%3C%22button%22%2Cstructure-432762210-1814-1852-432762210-1783-1853-432762210-1742-1853-432762210-0-3093%3E"
+    },
+    "TableType_GenericT<\"button\",structure-432762210-1814-1852-432762210-1783-1853-432762210-1742-1853-432762210-0-3093>": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "const": "redirect",
+          "type": "string"
+        },
+        "src": {
+          "type": "string"
+        },
+        "type": {
+          "const": "button",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "src",
+        "type"
+      ],
+      "type": "object"
+    },
+    "TableType_GenericT<\"button\",structure-432762210-2165-2204-432762210-2134-2205-432762210-1962-2205-432762210-0-3093>": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "const": "dl_api",
+          "type": "string"
+        },
+        "config": {
+          "$ref": "#/definitions/QueryT"
+        },
+        "type": {
+          "const": "button",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "config",
+        "type"
+      ],
+      "type": "object"
+    },
+    "TableType_GenericT<\"img\",structure-432762210-1705-1741-432762210-1677-1742-432762210-1646-1742-432762210-0-3093>": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "type": "number"
+        },
+        "type": {
+          "const": "img",
+          "type": "string"
+        },
+        "width": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "height",
+        "type",
+        "width"
+      ],
+      "type": "object"
+    },
+    "TableType_GenericT<\"input\",structure-432762210-1914-1961-432762210-1884-1962-432762210-1853-1962-432762210-0-3093>": {
+      "additionalProperties": false,
+      "properties": {
+        "inputType": {
+          "enum": [
+            "text",
+            "number",
+            "textarea"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "const": "input",
+          "type": "string"
+        }
+      },
+      "required": [
+        "inputType",
+        "type"
+      ],
+      "type": "object"
+    },
+    "TableType_GenericT<(\"string\"|\"number\"|\"id\"),structure-432762210-1470-1581-432762210-1416-1585-432762210-1189-1585-432762210-0-3093>": {
+      "additionalProperties": false,
+      "properties": {
+        "fpAccuracy": {
+          "type": "number"
+        },
+        "sortable": {
+          "type": "boolean"
+        },
+        "type": {
+          "enum": [
+            "string",
+            "number",
+            "id"
+          ],
+          "type": "string"
+        },
+        "zoomable": {
+          "enum": [
+            "normal",
+            "admet",
+            "none"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "sortable",
+        "type",
+        "zoomable"
+      ],
+      "type": "object"
+    },
+    "TableType_ImageT": {
+      "$ref": "#/definitions/TableType_GenericT%3C%22img%22%2Cstructure-432762210-1705-1741-432762210-1677-1742-432762210-1646-1742-432762210-0-3093%3E"
+    },
+    "TableType_InputT": {
+      "$ref": "#/definitions/TableType_GenericT%3C%22input%22%2Cstructure-432762210-1914-1961-432762210-1884-1962-432762210-1853-1962-432762210-0-3093%3E"
+    },
+    "TableType_ZoomableSortableT": {
+      "$ref": "#/definitions/TableType_GenericT%3C(%22string%22%7C%22number%22%7C%22id%22)%2Cstructure-432762210-1470-1581-432762210-1416-1585-432762210-1189-1585-432762210-0-3093%3E"
+    },
+    "TableTypes": {
+      "additionalProperties": false,
+      "properties": {
+        "sortable": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "zoomable": {
+          "anyOf": [
+            {
+              "const": "normal",
+              "type": "string"
+            },
+            {
+              "const": "none",
+              "type": "string"
+            },
+            {
+              "const": "admet",
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Widget_CheckBoxTable_ParamsT": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Widget_CheckboxTable_v1_ParamsT"
+        },
+        {
+          "$ref": "#/definitions/Widget_CheckboxTable_v0_ParamsT"
+        }
+      ]
+    },
+    "Widget_CheckBox_ParamsT": {
+      "additionalProperties": false,
+      "properties": {
+        "multiple": {
+          "type": "boolean"
+        },
+        "options": {
+          "$ref": "#/definitions/LazyWidgetDataT%3COptionsT%3Cany%3E%3E"
+        }
+      },
+      "required": [
+        "options",
+        "multiple"
+      ],
+      "type": "object"
+    },
+    "Widget_CheckboxTable_Base<structure-333312064-1316-1434-333312064-1289-1435-333312064-1243-1435-333312064-0-6321>": {
+      "additionalProperties": false,
+      "properties": {
+        "checkIndex": {
+          "type": "number"
+        },
+        "headers": {
+          "$ref": "#/definitions/LazyWidgetDataT%3CTableHeadersT%3E"
+        },
+        "mappedIndex": {
+          "type": "number"
+        },
+        "multiple": {
+          "type": "boolean"
+        },
+        "rows": {
+          "$ref": "#/definitions/LazyWidgetDataT%3CTableRowsT%3E"
+        },
+        "version": {
+          "$ref": "#/definitions/LazyWidgetDataT%3C%221.0%22%3E"
+        }
+      },
+      "required": [
+        "checkIndex",
+        "headers",
+        "multiple",
+        "rows",
+        "version"
+      ],
+      "type": "object"
+    },
+    "Widget_CheckboxTable_Base<structure-333312064-1508-1682-333312064-1481-1683-333312064-1435-1683-333312064-0-6321>": {
+      "additionalProperties": false,
+      "properties": {
+        "checkIndex": {
+          "type": "number"
+        },
+        "headers": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cstring%5B%5D%3E"
+        },
+        "mappedIndex": {
+          "type": "number"
+        },
+        "multiple": {
+          "type": "boolean"
+        },
+        "rows": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cstring%5B%5D%5B%5D%3E"
+        },
+        "types": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cdef-interface-432732419-53-182-432732419-0-528%5B%5D%3E"
+        },
+        "version": {
+          "$ref": "#/definitions/LazyWidgetDataT%3C%220.0%22%3E"
+        }
+      },
+      "required": [
+        "checkIndex",
+        "headers",
+        "multiple",
+        "rows",
+        "types",
+        "version"
+      ],
+      "type": "object"
+    },
+    "Widget_CheckboxTable_v0_ParamsT": {
+      "$ref": "#/definitions/Widget_CheckboxTable_Base%3Cstructure-333312064-1508-1682-333312064-1481-1683-333312064-1435-1683-333312064-0-6321%3E"
+    },
+    "Widget_CheckboxTable_v1_ParamsT": {
+      "$ref": "#/definitions/Widget_CheckboxTable_Base%3Cstructure-333312064-1316-1434-333312064-1289-1435-333312064-1243-1435-333312064-0-6321%3E"
+    },
+    "Widget_Dropdown_ParamsT": {
+      "additionalProperties": false,
+      "properties": {
+        "options": {
+          "$ref": "#/definitions/LazyWidgetDataT%3COptionsT%3Cany%3E%3E"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "type": "object"
+    },
+    "Widget_LigandSelect_ParamsT": {
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "Widget_List_ParamsT": {
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cnumber%3E"
+        }
+      },
+      "required": [
+        "length"
+      ],
+      "type": "object"
+    },
+    "Widget_Number_ParamsT": {
+      "additionalProperties": false,
+      "properties": {
+        "maxValue": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cnumber%3E"
+        },
+        "minValue": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cnumber%3E"
+        }
+      },
+      "type": "object"
+    },
+    "Widget_PDFFile_ParamsT": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cstring%3E"
+        }
+      },
+      "required": [
+        "file"
+      ],
+      "type": "object"
+    },
+    "Widget_TextArea_ParamsT": {
+      "additionalProperties": false,
+      "properties": {
+        "cols": {
+          "type": "number"
+        },
+        "regex": {
+          "type": "string"
+        },
+        "rows": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "rows",
+        "cols"
+      ],
+      "type": "object"
+    },
+    "Widget_Text_ParamsT": {
+      "additionalProperties": false,
+      "properties": {
+        "regex": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Widget_ThreadGPUWidget_ParamsT": {
+      "additionalProperties": false,
+      "properties": {
+        "max_value": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cnumber%3E"
+        },
+        "min_value": {
+          "$ref": "#/definitions/LazyWidgetDataT%3Cnumber%3E"
+        }
+      },
+      "required": [
+        "max_value",
+        "min_value"
+      ],
+      "type": "object"
+    }
+  }
+}

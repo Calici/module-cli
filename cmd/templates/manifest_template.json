@@ -1,0 +1,59 @@
+{
+  "$schema": "manifest-validate.json",
+  "params": {
+    "example_field" : {"type": "str", "default": "example value"}
+  },
+  "params_render": {
+    "overrides": {
+      "example_field" : {
+        "name": "Example Field",
+        "widget": null,
+        "params": null
+      }
+    },
+    "advanced": [{
+      "display": "form",
+      "components": [],
+      "fields": ["example_field"]
+    }],
+    "simple": [{
+      "display": "form",
+      "components": [],
+      "fields": ["example_field"]
+    }]
+  },
+  "results": {
+    "example_result" : {"type": "path", "default": "."}
+  },
+  "results_render": {
+    "params": {
+      "example_field" : {"type": "str", "default": "example value"}
+    },
+    "overrides": {
+      "example_field" : {
+        "name": "Example Field",
+        "widget": null,
+        "params": null
+      }
+    },
+    "advanced": [{
+      "display": "form",
+      "components": [],
+      "fields": ["example_field"]
+    }],
+    "simple": [{
+      "display": "form",
+      "components": [],
+      "fields": ["example_field"]
+    }]
+  },
+  "run_count": [],
+  "token_prices": [],
+  "in_nodes": { "example_result" : { "name": "Example", "type" : "Example" } },
+  "out_nodes": { "example_result" : { "name": "Example", "type" : "Example" } },
+  "download_struct": {
+    "attach": [],
+    "structure" : null
+  },
+  "version": "0.0"
+}
