@@ -5,7 +5,7 @@ import MessageBox from "../messagebox/messagebox"
 
 // CSS
 import './table.css'
-import NoProcess from 'assets/noresult/no-simul.png'
+import NoProcess from '../../assets/noresult/no-simul.png'
 
 // NB : If you wanna use different layout for mobile and desktop, make a new
 // component. Otherwise, it is only going to use css for switching.

@@ -7,10 +7,10 @@ import ProgressBar from "../../components/progressbar/progressbar";
 import SocketMessages from "../share/socket-message";
 
 // Graphics Import
-import MainCircle from "assets/simulation/main-circle.svg";
-import MainCircleBorder from "assets/simulation/main-circle-border.svg";
-import MainCircleDot from "assets/simulation/main-circle-dot.svg";
-import MainCircleDash from "assets/simulation/main-circle-dash.svg";
+import MainCircle from "../../assets/simulation/main-circle.svg";
+import MainCircleBorder from "../../assets/simulation/main-circle-border.svg";
+import MainCircleDot from "../../assets/simulation/main-circle-dot.svg";
+import MainCircleDash from "../../assets/simulation/main-circle-dash.svg";
 
 // CSS
 import "./main.css";

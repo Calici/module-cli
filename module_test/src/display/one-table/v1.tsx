@@ -5,7 +5,7 @@ import ProgressBar from "../../components/progressbar/progressbar";
 import Controls from "../share/controls";
 import SocketMessages from "../share/socket-message";
 import SocketTable from "../share/V1Table/table";
-import NoResult from 'assets/noresult/no-simulation-result.png';
+import NoResult from '../../assets/noresult/no-simulation-result.png';
 import EmptyList from "../../components/empty-list/emptylist";
 import RunTimer from "../share/run_timer";
 import './main.css';

@@ -1,7 +1,7 @@
 import Lister from "../../components/lister/lister"
 import React from "react"
 import Fade from 'react-reveal/Fade'
-import 'stylesheet/animation/webanimation.css'
+import './webanimation.css'
 
 class AniItem extends React.Component{
   render(){

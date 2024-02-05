@@ -7,7 +7,7 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import Loading from '../../core/loading/loading';
 import "./pdf-viewer.css"
 import EmptyList from '../../components/empty-list/emptylist';
-import NoResult from 'assets/noresult/no-request.png';
+import NoResult from '../../assets/noresult/no-request.png';
 
 
 pdfjs.GlobalWorkerOptions.workerSrc =

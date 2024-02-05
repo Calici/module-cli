@@ -1,0 +1,225 @@
+.message-box.socket-load-msgbox {
+  border-radius: 1em;
+  min-width: 600px;
+  height: auto;
+  margin: 0;
+  padding: 2em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.socket-load-msg {
+  width: 100%;
+}
+
+.socket-load-msg>p {
+  text-align: center;
+}
+
+.socket-load-msg-title {
+  color: var(--main);
+  font-family: 'Exo';
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.socket-load-msg-title.warning {
+  color: var(--warning);
+}
+
+.socket-load-msg-title svg {
+  margin-right: 5px;
+}
+
+.socket-load-msg-title.spin svg {
+  animation: rotate-ani 1s infinite;
+}
+
+.socket-load-msg-title svg path {
+  fill: var(--main);
+}
+
+.socket-load-msg-title.warning svg path {
+  fill: var(--warning);
+}
+
+@keyframes rotate-ani {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.socket-load-msg-desc {
+  font-weight: bold;
+  font-size: 30px;
+  white-space: pre-line;
+}
+
+.queue-box {
+  background-color: var(--dark);
+  border-radius: 10px;
+  width: 50%;
+  margin: 0em auto;
+  margin-top: 1em;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.queue-title {
+  border-right: 1px solid white;
+  margin-right: 1em;
+  padding-right: 1em;
+  color: white;
+}
+
+.queue-icon {
+  color: var(--main);
+  font-family: 'Exo';
+}
+
+.queue-icon svg path {
+  fill: var(--main);
+}
+
+.socket-load-msg-server {
+  background: var(--gray);
+  border-radius: 1em;
+  margin-top: 1em;
+  padding: 1em;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socket-load-msg-server a {
+  background: var(--main);
+  display: block;
+  border-radius: 5em;
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  color: white;
+}
+
+.socket-load-msg-server a:hover {
+  background: var(--gradient);
+  text-decoration: underline;
+}
+
+.socket-load-msg-server a svg {
+  margin-right: 0.5em;
+}
+
+.socket-load-msg-server a svg path {
+  fill: white;
+}
+
+.socket-load-msg-desc2 {
+  margin-top: 10px;
+  color: var(--opacity-dark5);
+}
+
+/* Close button */
+.socket-load-msgbox>a {
+  border: 1px solid var(--dark);
+  border-radius: 5px;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: -20px;
+  position: absolute;
+  right: 1.5em;
+  top: 0.5em;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socket-load-msgbox>a:hover {
+  border-color: var(--warning);
+  transition: 0.3s;
+}
+
+.socket-load-msgbox>a:hover svg path {
+  fill: var(--warning);
+  transition: 0.3s;
+}
+
+.socket-load-btn {
+  background: white;
+  border-radius: 20px 20px 0px 0px;
+  box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.05);
+  width: calc(100vw - 165px);
+  height: 80px;
+  padding: 0em 1em;
+  position: fixed;
+  left: 165px;
+  bottom: 0px;
+  z-index: 99999;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.socket-load-btn a {
+  border-radius: 5em;
+  border: 1px solid var(--main);
+  width: auto;
+  height: 50px;
+  padding: 0em 1em;
+  color: var(--main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.socket-load-btn a.completed {
+  background: var(--main);
+  color: var(--dark);
+}
+
+.socket-load-btn a:hover {
+  background: var(--main);
+  color: white;
+}
+
+@media(max-width:1280px) {
+  .socket-load-btn {
+    width: 100%;
+    left: 0px;
+  }
+}
+
+@media(max-width:800px) {
+  .message-box.socket-load-msgbox {
+    min-width: 300px;
+    height: auto;
+    padding: 1em;
+    flex-direction: column;
+    transition: 0.3s;
+  }
+
+  .socket-load-msg-desc {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .queue-box {
+    width: 100%;
+  }
+
+  .socket-load-msg-desc2>br {
+    display: none;
+  }
+
+  .socket-load-msgbox>a {
+    margin-top: 10px;
+    top: 0em;
+    font-size: 18px;
+  }
+}
