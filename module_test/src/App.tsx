@@ -5,6 +5,7 @@ import CaliciSocket from "./socket"
 
 
 const App = () => {
+  console.log(process.env.REACT_APP_WS_ENDPOINT)
   const params = useParams()
   const moduleId = params.moduleId
   const useNew = params.useNew
