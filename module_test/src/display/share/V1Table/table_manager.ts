@@ -3,7 +3,7 @@ import {
   TableType_ZoomableSortableT,
   TableT,
   TableCell_ZoomableI,
-} from "../../../interfaces/oneTableDisplay/v1";
+} from "interfaces/oneTableDisplay/v1";
 
 class Cell{
   static isNumber = (

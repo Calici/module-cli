@@ -1,12 +1,12 @@
-import MessageBox from "../../components/messagebox/messagebox"
-import { SocketControl } from "../../interfaces/component"
+import MessageBox from "components/messagebox/messagebox"
+import { SocketControl } from "interfaces/component"
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faPlay,
   faPause
 } from "@fortawesome/free-solid-svg-icons"
-import { StatusT } from "../../interfaces/displayCommon"
+import { StatusT } from "interfaces/displayCommon"
 import "./controls.css"
 
 type ControlP<U, V> = {

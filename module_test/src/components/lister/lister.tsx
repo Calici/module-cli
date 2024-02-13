@@ -1,5 +1,5 @@
 import React from 'react'
-import { randomString } from '../../libs/utils'
+import { randomString } from 'libs/utils'
 
 export type ListerMappedP<T, U> =
   { data : T, id : number } & U

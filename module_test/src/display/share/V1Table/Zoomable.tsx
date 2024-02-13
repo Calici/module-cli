@@ -1,8 +1,8 @@
-import MessageBox from "../../../components/messagebox/messagebox"
+import MessageBox from "components/messagebox/messagebox"
 import React from "react"
 import {
   TableType_ZoomableSortableT
-} from "../../../interfaces/oneTableDisplay/v1"
+} from "interfaces/oneTableDisplay/v1"
 import {
   FontAwesomeIcon
 } from "@fortawesome/react-fontawesome"
@@ -11,9 +11,9 @@ import {
   faTimesCircle,
   faDotCircle
 } from "@fortawesome/free-solid-svg-icons"
-import Lister from "../../../components/lister/lister"
-import { TokenEndpoint, UNIVERSAL_TOKEN } from '../../../API/base';
-import { isEmptyString } from '../../../libs/validator'
+import Lister from "components/lister/lister"
+import { TokenEndpoint, UNIVERSAL_TOKEN } from 'API/base';
+import { isEmptyString } from 'libs/validator'
 interface ZoomableP{
   zoomable: TableType_ZoomableSortableT["zoomable"],
   noZoom: React.ReactNode,

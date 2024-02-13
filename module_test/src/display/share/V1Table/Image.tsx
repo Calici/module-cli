@@ -1,5 +1,5 @@
 import './table.css';
-import { TableCell_ImgI, TableType_ImageT } from '../../../interfaces/oneTableDisplay/v1';
+import { TableCell_ImgI, TableType_ImageT } from 'interfaces/oneTableDisplay/v1';
 import Zoomable from "./Zoomable";
 
 type ImageCellProps = {

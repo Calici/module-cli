@@ -1,16 +1,16 @@
 import React from "react";
-import { OneTableDisplayI as OneTableDisplayI_v0 } from "../../interfaces/oneTableDisplay/v0";
-import { SocketControl } from "../../interfaces/component";
-import ProgressBar from "../../components/progressbar/progressbar";
+import { OneTableDisplayI as OneTableDisplayI_v0 } from "interfaces/oneTableDisplay/v0";
+import { SocketControl } from "interfaces/component";
+import ProgressBar from "components/progressbar/progressbar";
 import Controls from "../share/controls";
 import SocketMessages from "../share/socket-message";
 import SocketTable from "../share/V1Table/table";
-import NoResult from '../../assets/noresult/no-simulation-result.png';
-import EmptyList from "../../components/empty-list/emptylist";
+import NoResult from 'assets/noresult/no-simulation-result.png';
+import EmptyList from "components/empty-list/emptylist";
 import RunTimer from "../share/run_timer";
 
 import './main.css';
-import { adaptV0TableToV1 } from "../../interfaces/adapters";
+import { adaptV0TableToV1 } from "interfaces/adapters";
 
 interface OneTableDisplayP{
   component : OneTableDisplayI_v0

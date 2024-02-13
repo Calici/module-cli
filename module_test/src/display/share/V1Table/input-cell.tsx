@@ -1,9 +1,9 @@
 import React from "react"
-import Input from "../../../components/input/input"
+import Input from "components/input/input"
 import {
   TableType_InputT ,
   TableCell_InputT
-} from "../../../interfaces/oneTableDisplay/v1"
+} from "interfaces/oneTableDisplay/v1"
 
 export type InputCellP = {
   data : TableCell_InputT,

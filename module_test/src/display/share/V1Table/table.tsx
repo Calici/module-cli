@@ -5,18 +5,18 @@ import {
   faSort
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Table from "../../../components/table/table";
+import Table from "components/table/table";
 import {
   TableCellT,
   TableTypesT,
   TableT,
   TableTypeT,
-} from "../../../interfaces/oneTableDisplay/v1";
-import AutoAdjustRow, { AutoAdjustCell } from "../../../components/table/auto-adjust-row";
+} from "interfaces/oneTableDisplay/v1";
+import AutoAdjustRow, { AutoAdjustCell } from "components/table/auto-adjust-row";
 import {
   TableCellChildP,
-} from "../../../components/table/auto-adjust-row";
-import { PaginationP } from "../../../components/pagination/pagination-component";
+} from "components/table/auto-adjust-row";
+import { PaginationP } from "components/pagination/pagination-component";
 // CSS
 import "./table.css"
 import ModuleTable from "./table_manager";

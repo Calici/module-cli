@@ -1,13 +1,13 @@
 import React from 'react'
 import { PDFDocumentProxy } from 'pdfjs-dist';
-import { Endpoint, TokenEndpoint, UNIVERSAL_TOKEN } from '../../API/base';
+import { Endpoint, TokenEndpoint, UNIVERSAL_TOKEN } from 'API/base';
 import { Document, pdfjs, Page } from 'react-pdf';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import Loading from '../../core/loading/loading';
+import Loading from 'core/loading/loading';
 import "./pdf-viewer.css"
-import EmptyList from '../../components/empty-list/emptylist';
-import NoResult from '../../assets/noresult/no-request.png';
+import EmptyList from 'components/empty-list/emptylist';
+import NoResult from 'assets/noresult/no-request.png';
 
 
 pdfjs.GlobalWorkerOptions.workerSrc =

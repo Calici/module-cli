@@ -1,7 +1,7 @@
-import { SocketControl } from "../../interfaces/component"
-import { PDFDisplayT } from "../../interfaces/pdfDisplay/v0"
+import { SocketControl } from "interfaces/component"
+import { PDFDisplayT } from "interfaces/pdfDisplay/v0"
 import SocketMessages from "../share/socket-message";
-import ProgressBar from "../../components/progressbar/progressbar";
+import ProgressBar from "components/progressbar/progressbar";
 import RunTimer from "../share/run_timer";
 import Controls from "../share/controls";
 import PDFViewer from "../share/pdf-viewer";

@@ -3,9 +3,9 @@ import './table.css';
 import {
   TableCell_ZoomableI,
   TableType_ZoomableSortableT
-} from '../../../interfaces/oneTableDisplay/v1';
+} from 'interfaces/oneTableDisplay/v1';
 import Zoomable from "./Zoomable";
-import { TokenEndpoint, UNIVERSAL_TOKEN } from '../../../API/base';
+import { TokenEndpoint, UNIVERSAL_TOKEN } from 'API/base';
 
 
 export type TextCellProps = {

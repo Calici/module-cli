@@ -1,7 +1,7 @@
 import React from "react";
-import { NoTableDisplayI as NoTableDisplayI_v0 } from "../../interfaces/noTableDisplay/v0";
-import { NoTableDisplayI as NoTableDisplayI_v1 } from "../../interfaces/noTableDisplay/v1";
-import { SocketControl } from "../../interfaces/component";
+import { NoTableDisplayI as NoTableDisplayI_v0 } from "interfaces/noTableDisplay/v0";
+import { NoTableDisplayI as NoTableDisplayI_v1 } from "interfaces/noTableDisplay/v1";
+import { SocketControl } from "interfaces/component";
 import NoTableDisplay from "./v1";
 // CSS
 import "./main.css";
