@@ -1,0 +1,2 @@
+.input>input{border:1px solid #0000004d;border-radius:10px;color:var(--dark);height:50px;padding:1em;width:100%}.input>input::placeholder{color:#00000080;font-size:15px}.input>input:focus{background:#fff;border:1px solid var(--main);color:var(--main);outline:none}.input p{color:var(--main)}.input.error>input{border:1.5px solid var(--warning)}.input.error>input:focus,.input.error>input:hover{border-color:var(--warning)}.input.error p{color:var(--warning)}@media(max-width:495px){.input{width:250px}}
+/*# sourceMappingURL=44.0a54d2db.chunk.css.map*/
