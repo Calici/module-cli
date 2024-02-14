@@ -2,8 +2,7 @@ import Display from "./interfaces/display"
 import React from "react"
 import MessageBox from './components/messagebox/messagebox'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner, faUsers, faTimes, faExclamationTriangle, faUser, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
-import { Link } from "react-router-dom";
+import { faSpinner, faUsers, faExclamationTriangle } from "@fortawesome/free-solid-svg-icons"
 import DisplayRenderer from "./display";
 import JSONSocket from "./components/json_socket/json_socket";
 import "./socket.css"
@@ -30,7 +29,7 @@ type CaliciSocketState = CaliciSocketState_Init | CaliciSocketState_UnInit
 export default class CaliciSocket extends React.Component<
   CaliciSocketProps, CaliciSocketState
 >{
-  static SOCKET_BACKEND_URL  = `${process.env.REACT_APP_WS_ENDPOINT}process/`
+  static SOCKET_BACKEND_URL  = `${process.env.REACT_APP_WS_ENDPOINT}`
   constructor(props : CaliciSocketProps){
     super(props)
     this.state  = {
@@ -132,9 +131,6 @@ export default class CaliciSocket extends React.Component<
     return(
       <div className='socket-load-msg-server'>
         <p>If you want to execute the module without waiting, <br/> you can require the dedicated server.</p>
-        <Link to ='/service/dedicated-server' target='blank'>
-          <FontAwesomeIcon icon={faExternalLinkAlt}/>About dedicated server
-        </Link>
       </div>
     )
   }
@@ -163,7 +159,6 @@ export default class CaliciSocket extends React.Component<
     const isDisplayInitialized = this.state.wsDisplay.isInitialized()
     const wsState = this.state.wsState
     const msg = this.state.wsData.msg
-    const moduleLink = "../params/cont_to=process"
     return (
       <div className = 'socket-display'>
         <MessageBox
@@ -180,9 +175,6 @@ export default class CaliciSocket extends React.Component<
             }
             {this.renderMsgBoxButtons()}
           </div>
-          <Link to = {moduleLink}>
-            <FontAwesomeIcon icon = {faTimes} />
-          </Link>
         </MessageBox>
         {
           isDisplayInitialized &&
@@ -191,19 +183,6 @@ export default class CaliciSocket extends React.Component<
             socket = {this.state.socket}
           />
         }
-        <div className = 'socket-load-btn'>
-          <Link
-            to = {moduleLink}
-            className = {
-              `socket-load-btn-prev ${
-                isDisplayInitialized && this.state.wsDisplay.isComplete() ?
-                  'completed' : ''
-              }`
-            }
-          >
-              Go to module list
-          </Link>
-        </div>
       </div>
     )
   }

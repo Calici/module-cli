@@ -1,4 +1,5 @@
 import CaliciSocket from "./socket"
+import "./App.css"
 
 const App = () => {
   const moduleId = "1"
