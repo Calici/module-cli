@@ -7,11 +7,11 @@ if __name__ == "__main__":
     server_port = 8765
 
     with open(".env", "w") as env_file:
-        env_file.write(f"REACT_APP_WS_ENDPOINT=ws://localhost:{server_port}/")
+        env_file.write(f"REACT_APP_WS_ENDPOINT=ws://[::1]:{server_port}")
 
     commands = [
         f"python server.py --port {server_port}",
-        f"python -m http.server {frontend_port} --directory frontend"
+        f"python -m http.server {frontend_port} --directory Frontend"
     ]
 
     processes = []
