@@ -1,31 +1,10 @@
 import subprocess
 import webbrowser
-import socket
-from contextlib import closing
-
-def check_port_availability(host: str, port: int) -> bool:
-    with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
-        return sock.connect_ex((host, port)) == 0
+import time
 
 if __name__ == "__main__":
-    frontend_ports = [8080, 8000, 3000, 5000, 9000, 8888, 8081, 8090, 8181, 8887]
-    server_ports = [8000, 8080, 3000, 5000, 8081, 8888, 9090, 3001, 3030, 4000]
-    frontend_port = None
-    server_port = None
-
-    for port in frontend_ports:
-        print(f"Frontend trying port {port}")
-        available = check_port_availability("localhost",port)
-        if available:
-            frontend_port = port
-            break
-
-    for port in server_ports:
-        print(f"Server trying port {port}")
-        available = check_port_availability("localhost",port)
-        if available and port != frontend_port:
-            server_port = port
-            break
+    frontend_port = 3000
+    server_port = 8765
 
     with open(".env", "w") as env_file:
         env_file.write(f"REACT_APP_WS_ENDPOINT=ws://localhost:{server_port}/")
@@ -41,5 +20,14 @@ if __name__ == "__main__":
 
     webbrowser.open(f"http://localhost:{frontend_port}", new=1)
 
-    for process in processes:
-        process.wait()
+    FLAG = True
+
+    while FLAG:
+        time.sleep(3)
+        for process in processes:
+            return_code = process.poll()
+            if return_code is not None:
+                for process in processes:
+                    process.kill()
+                FLAG = False
+                print("Testing Finished!")

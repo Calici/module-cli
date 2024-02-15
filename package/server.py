@@ -20,53 +20,40 @@ class RunSocketBackend:
         self.progressComplete = json.dumps({"type": "display", "msg": {"component": {"progress": {"value": 100}}}})
         self.moduleComplete = json.dumps({"type": "display", "msg": {"component": {"status": "COMPLETE"}}})
 
-    async def handle_client(self, websocket: WebSocketServerProtocol):
+    async def handle_client(self, websocket: WebSocketServerProtocol) -> None:
         try:
-            async for message in websocket:
-                print(f"Recieved message: {message}")
-                print(self.initialData)
+            async for _ in websocket:
+                #TODO: add manfiest.json data here
                 await websocket.send(self.initialData)
                 await asyncio.sleep(0.5)
-                print(self.queue)
                 await websocket.send(self.queue)
                 await asyncio.sleep(0.5)
-                print(self.validateAuthentication)
                 await websocket.send(self.validateAuthentication)
                 await asyncio.sleep(0.5)
-                print(self.initBuffer)
                 await websocket.send(self.initBuffer)
                 await asyncio.sleep(0.5)
-                print(self.runningModule)
                 await websocket.send(self.runningModule)
                 await asyncio.sleep(1)
-                print(self.progressComplete)
                 await websocket.send(self.progress)
                 await asyncio.sleep(2)
-                print(self.progressComplete)
                 await websocket.send(self.progressComplete)
                 await asyncio.sleep(4)
-                print(self.moduleComplete)
                 await websocket.send(self.moduleComplete)
 
         except ConnectionClosed:
             print("Client disconnected")
 
-        async for message in websocket:
-            print(f"Message: {message}")
-
-        #TODO: add manfiest.json data here
-
     async def start_server(self) -> None:
         self.server = await serve(self.handle_client, self.host, self.port)
         print(f"Server started at {self.host}:{self.port}")
-        await self.server.wait_closed()
-        # await asyncio.sleep(20)
-        # await self.stop_server()
+        await asyncio.sleep(10)
+        await self.stop_server()
 
     async def stop_server(self) -> None:
         if self.server:
             self.server.close()
             await self.server.wait_closed()
+            print("Backend server closed!")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Start WebSocket server.')
