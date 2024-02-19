@@ -7,7 +7,7 @@ if __name__ == "__main__":
     server_port = 8765
 
     with open(".env", "w") as env_file:
-        env_file.write(f"REACT_APP_WS_ENDPOINT=ws://[::1]:{server_port}")
+        env_file.write(f"REACT_APP_WS_ENDPOINT=ws://0.0.0.0:{server_port}")
 
     commands = [
         f"python server.py --port {server_port}",
@@ -19,6 +19,7 @@ if __name__ == "__main__":
         processes.append(subprocess.Popen(cmd, shell=True))
 
     webbrowser.open(f"http://localhost:{frontend_port}", new=1)
+    print(f"Please head to http://localhost:{frontend_port}/")
 
     FLAG = True
 

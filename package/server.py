@@ -60,5 +60,5 @@ if __name__ == "__main__":
     parser.add_argument('--port', type=int, help='Port number to use for the WebSocket server.')
     args = parser.parse_args()
     port = args.port
-    server = RunSocketBackend(host="[::1]", port=port)
+    server = RunSocketBackend(host="0.0.0.0", port=port)
     asyncio.run(server.start_server())
