@@ -27,7 +27,9 @@ if __name__ == "__main__":
         for process in processes:
             return_code = process.poll()
             if return_code is not None:
-                for process in processes:
-                    process.kill()
+                for proc in processes:
+                    proc.terminate()
+                    time.sleep(1)
                 FLAG = False
-                print("Testing Finished!")
+                break
+    print("Testing Finished!")

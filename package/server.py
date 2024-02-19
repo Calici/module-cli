@@ -23,7 +23,7 @@ class RunSocketBackend:
     async def handle_client(self, websocket: WebSocketServerProtocol) -> None:
         try:
             async for _ in websocket:
-                #TODO: add manfiest.json data here
+                #TODO: add display.json data here
                 await websocket.send(self.initialData)
                 await asyncio.sleep(0.5)
                 await websocket.send(self.queue)
