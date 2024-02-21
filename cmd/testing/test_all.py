@@ -10,7 +10,6 @@ from module_api.API.lock import CaliciLock
 from typing import List
 import subprocess
 import pathlib
-import webbrowser
 class TestAll(TestBase):
     def __init__(self, lock : ModuleLock):
         super().__init__(lock)
@@ -25,7 +24,7 @@ class TestAll(TestBase):
             return self.api_token
     
     def prep_test(self) -> subprocess.Popen:
-        subprocess.run(["sssssssssssssssssss", "network", "create", self.network_name()])
+        subprocess.run(["docker", "network", "create", self.network_name()])
         process = subprocess.Popen([
             "docker", "run",
             "--rm", "--name", self.server_name(),
@@ -81,9 +80,6 @@ class TestAll(TestBase):
         port = self.port()
         server_name = self.server_name()
         root_dir = self.lock.module.root_dir.get()
-        frontend_port = 8000
-        frontend_name = "frontend-server"
-
         self.run_args = {
             test.name.get() : [
                 *self.container.get_env_args({
@@ -101,16 +97,6 @@ class TestAll(TestBase):
             ]
             for test in self.lock.testing.get()
         }
-
-        frontend_run_args = [
-            "docker", "run"
-            "--rm", "--name", frontend_name,
-            "-p", f"{frontend_port}:80", 
-            "-v", "{0}:{1}".format(str(root_dir / 'frontend'),'usr/share/nginx/html'),
-            "nginx:alpine"
-        ]
-        subprocess.run(frontend_run_args)
-        webbrowser.open_new(f'http://localhost:{frontend_port}')
 
     def run_process(self, name : str, test_path : pathlib.Path):
         process = self.container.run(

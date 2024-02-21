@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmodule_test=self.webpackChunkmodule_test||[]).push([[76],{4076:(e,t,o)=>{o.r(t),o.d(t,{default:()=>n});o(9600);var s=o(6916),l=o(2496);const n=e=>{let{data:t}=e;return(0,l.jsx)(s.c,{zoomable:"normal",noZoom:(0,l.jsx)("p",{children:t.buttonText}),zoom:(0,l.jsx)("p",{children:t.hiddenText})})}}}]);
+//# sourceMappingURL=76.ed747c49.chunk.js.map

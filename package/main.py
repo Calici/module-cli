@@ -10,7 +10,7 @@ if __name__ == "__main__":
         env_file.write(f"REACT_APP_WS_ENDPOINT=ws://0.0.0.0:{server_port}")
 
     commands = [
-        f"python server.py --port {server_port}",
+        f"python socket_server.py --port {server_port}",
         f"python -m http.server {frontend_port} --directory Frontend"
     ]
 
@@ -30,7 +30,6 @@ if __name__ == "__main__":
             if return_code is not None:
                 for proc in processes:
                     proc.terminate()
-                    time.sleep(1)
                 FLAG = False
                 break
     print("Testing Finished!")
