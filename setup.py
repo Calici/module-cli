@@ -18,7 +18,7 @@ setup(
       "requests==2.31.0",
       "typing_extensions==4.7.1",
       "python-slugify==8.0.1",
-      "module-api @ https://github.com/Calici/module-api/releases/download/dev-1.0.1-2024-02-13/module_api-1.0.1-py3-none-any.whl"
+      "module-api @ https://github.com/Calici/module-api/releases/download/beta-1.1.0-2024-03-08/module_api-1.1.0-py3-none-any.whl"
     ],
     include_package_data = True,
     scripts = ['bin/pharmaco']
