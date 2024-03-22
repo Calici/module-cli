@@ -1,4 +1,4 @@
-from module_api.cmd.base import \
+from module_cli.base import \
     ModuleLock, \
     ActionHandler, \
     Container

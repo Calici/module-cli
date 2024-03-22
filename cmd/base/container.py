@@ -9,6 +9,12 @@ class Container:
     def __init__(self, lock : ModuleLock):
         self.lock = lock
 
+    def name(self):
+        return self.lock.docker.container_name.get()
+
+    def dockerfile(self) -> pathlib.Path:
+        return self.lock.module.root_dir.get() / 'dockerfile'
+
     def map_dir(self, host : str, client : str) -> str:
         root_dir = self.lock.module.root_dir.get()
         host_path = pathlib.Path(host)

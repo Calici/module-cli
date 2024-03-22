@@ -1,4 +1,4 @@
-from module_api.cmd.base import ActionHandler
+from module_cli.base import ActionHandler
 
 class InitLock(ActionHandler):
     def action(self):

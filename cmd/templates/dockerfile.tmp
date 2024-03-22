@@ -4,11 +4,10 @@ FROM python:3.11-slim
 
 RUN useradd -u 8879 -m calici
 RUN mkdir /app
+COPY ./src /app
 RUN chown -R calici:calici /app
 
 # Code here is executed as user
-
-# Code after this is just preparation for running
+USER calici
 WORKDIR /app
-COPY ./src /app
 ENTRYPOINT ["python3", "/app/run.py"]

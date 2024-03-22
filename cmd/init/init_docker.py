@@ -1,4 +1,4 @@
-from module_api.cmd.base import ActionHandler, TEMPLATE_DIR
+from module_cli.base import ActionHandler, TEMPLATE_DIR
 import shutil
 
 DOCKER_TEMPLATE = TEMPLATE_DIR / 'dockerfile.tmp'

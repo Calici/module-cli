@@ -1,5 +1,5 @@
-from module_api.cmd.base import ActionHandler, TEMPLATE_DIR
-from module_api.cmd.base import ModuleLock
+from module_cli.base import ActionHandler, TEMPLATE_DIR
+from module_cli.base import ModuleLock
 from slugify import slugify
 import shutil
 import subprocess

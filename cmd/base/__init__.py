@@ -7,6 +7,7 @@ from .container import \
     Container
 from .lock import \
     ModuleLock
+from .confirm import confirm_or_exit
 
 __all__ = [
   'ActionHandler',
@@ -15,4 +16,5 @@ __all__ = [
   'ModuleLock',
   'TEMPLATE_DIR', 
   'HandlerMapT',
+  'confirm_or_exit'
 ]

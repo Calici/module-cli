@@ -1,5 +1,5 @@
 {
-  "$schema": "manifest-validate.json",
+  "$schema": "https://github.com/Calici/module-cli/releases/download/manifest-v1.0.0/manifest-validate.json",
   "params": {
     "example_field" : {"type": "str", "default": "example value"}
   },
@@ -13,12 +13,10 @@
     },
     "advanced": [{
       "display": "form",
-      "components": [],
       "fields": ["example_field"]
     }],
     "simple": [{
       "display": "form",
-      "components": [],
       "fields": ["example_field"]
     }]
   },
@@ -38,12 +36,10 @@
     },
     "advanced": [{
       "display": "form",
-      "components": [],
       "fields": ["example_field"]
     }],
     "simple": [{
       "display": "form",
-      "components": [],
       "fields": ["example_field"]
     }]
   },

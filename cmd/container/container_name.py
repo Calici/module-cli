@@ -3,9 +3,9 @@ from module_cli.base import \
     ActionHandler, \
     Container
 
-class BuildDocker(ActionHandler):
-    def __init__(self, lock: ModuleLock):
+class ContainerName(ActionHandler):
+    def __init__(self, lock : ModuleLock):
+        super().__init__(lock)
         self.container = Container(lock)
-    
     def action(self):
-        self.container.build().wait()
+        print(self.container.name())
