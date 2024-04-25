@@ -1,1 +1,8 @@
 **__pycache__
+.test/*/workdir/*
+!.test/*/workdir/.reserved/
+.test/*/workdir/.reserved/display
+.test/*/workdir/.reserved/*
+!.test/*/workdir/.reserved/params.yml
+!.test/*/workdir/.reserved/default.lock
+**sys_lock

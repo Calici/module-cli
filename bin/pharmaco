@@ -29,6 +29,7 @@ HANDLERS : HandlerMapT = {
     "test.list" : ["test.refresh", TestList],
     "test.refresh" : TestRefresh,
     "test.reset.all" : ["test.refresh", ResetAllTest],
+    "test.fix" : ["test.refresh", TestFix],
 
     # Container
     "container.build" : BuildDocker, 
@@ -44,7 +45,8 @@ HANDLERS : HandlerMapT = {
     ],
 
     'rename' : Rename,
-    'reversion' : Reversion
+    'reversion' : Reversion, 
+    'relock' : lambda lock: InitWorkdirHandler(lock, True)
 }
 
 MAX_FIND_DEPTH = 10;

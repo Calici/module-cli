@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="module-cli",
-    version="1.0.0",
+    version="1.0.1",
     description="A Python Package to build, test and deploy module.",
     url="https://github.com/calici/module-cli",
     author="Jonathan Willianto",

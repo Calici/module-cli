@@ -51,19 +51,15 @@ class ParamField:
                 )
 
 class InitWorkdirHandler(ActionHandler):
-    def __init__(self, lock : ModuleLock):
+    def __init__(self, lock : ModuleLock, overwrite_lock_py : bool = False):
         super().__init__(lock)
         workdir = self.lock.module.root_dir.get() / 'src'
         self.lock_py_path = workdir / 'lock.py'
         self.run_py_path = workdir / 'run.py'
         
-        if self.lock_py_path.exists():
+        if self.lock_py_path.exists() and not overwrite_lock_py:
             raise RuntimeError(
                 f"Refusing to overwrite existing lock file {self.lock_py_path}"
-            )
-        if self.run_py_path.exists():
-            raise RuntimeError(
-                f"Refusing to overwrite existing run file {self.run_py_path}"
             )
         self.manifest.validate_exist()
         self.workdir.mkdir(parents = True, exist_ok = True)
@@ -92,4 +88,6 @@ class InitWorkdirHandler(ActionHandler):
     
     def action(self):
         self.write_lock_file()
-        shutil.copy(RUN_TEMPLATE, self.run_py_path)
+        # Overwrite only when it does not exists
+        if not self.run_py_path.exists():
+            shutil.copy(RUN_TEMPLATE, self.run_py_path)
