@@ -1,0 +1,8 @@
+build
+dist
+env
+module_cli.egg-info
+.gitignore
+dockerfile
+LICENSE
+README.md

@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="module-cli",
@@ -8,12 +8,12 @@ setup(
     author="Jonathan Willianto",
     author_email="jo.will@calici.co",
     license="MIT",
-    packages=["module_cli"],
+    packages=find_packages(),
     install_requires=[
         "requests>=2.31.0",
         "typing_extensions>=4.7.1",
         "python-slugify>=8.0.1",
-        "module-api>=1.1.0",
+        "module-api>=1.2.1"
     ],
     include_package_data=True,
     scripts=["bin/pharmaco"]
