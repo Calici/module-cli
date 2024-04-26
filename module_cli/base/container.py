@@ -38,7 +38,8 @@ class Container:
         ]
         all_envs = {
             name : value for name, value in lock_envs
-        } | env_args
+        }
+        all_envs.update(env_args)
         return [
             entry
             for env_name, env_value in all_envs.items()
