@@ -12,7 +12,7 @@ class Log:
         self.logs = logs
     def add_to_log(self, log : LogT):
         # self.logs.append(log)
-        logging.info(log + '\n')
+        logging.info(str(log) + '\n')
 
 logs = Log()
 logger = logging.getLogger()
