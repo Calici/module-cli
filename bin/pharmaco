@@ -89,14 +89,14 @@ if __name__ == '__main__':
     lock.save()
     
     if action not in HANDLERS:
-        if not lock_exist:
-            lock_path.unlink(True)
+        if not lock_exist and lock_path.exists():
+            lock_path.unlink()
         raise RuntimeError("{0} is not part of {1}".format(
             action, HANDLERS.keys()
         ))
     try:
         exec_handlers(HANDLERS, action, lock)
     except:
-        if not lock_exist:
-            lock_path.unlink(True)
+        if not lock_exist and lock_path.exists():
+            lock_path.unlink()
         raise

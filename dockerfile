@@ -1,5 +1,5 @@
-FROM python:3.11-slim as build
-
+ARG PYTHON_VERSION
+FROM python:$PYTHON_VERSION-slim as build
 WORKDIR /app
 COPY . .
 RUN pip install . --extra-index-url=https://pypi.cal-tb01.ddnsfree.com
