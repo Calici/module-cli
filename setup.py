@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="module-cli",
-    version="1.0.2",
+    version="1.0.3",
     description="A Python Package to build, test and deploy module.",
     url="https://github.com/calici/module-cli",
     author="Jonathan Willianto",
@@ -13,7 +13,7 @@ setup(
         "requests>=2.31.0",
         "typing_extensions>=4.7.1",
         "python-slugify>=8.0.1",
-        "module-api>=1.2.3"
+        "module-api>=1.2.6"
     ],
     include_package_data=True,
     scripts=["bin/pharmaco"]
