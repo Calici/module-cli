@@ -2,6 +2,8 @@ module;
 #include <expected>
 #include <filesystem>
 #include <format>
+#include <vector>
+#include <algorithm>
 #include <string>
 #include <zip.h>
 export module pharmaco.manifest:zip_builder;
@@ -46,13 +48,13 @@ namespace pharmaco::manifest {
   class zip_builder {
     fs::path __path;
     fs::path __root;
+    std::vector<std::string> __added;
     std::unique_ptr<zip_t, zip_discarder> __zip;
     zip_builder(fs::path path, fs::path root, std::unique_ptr<zip_t, zip_discarder> zip) :
       __path{std::move(path)}, __root{root}, __zip{std::move(zip)} {}
-
   public:
     std::expected<fs::path, zip_error> make_zip_path(const fs::path &p) const {
-      auto rel_p = fs::relative(p, __root);
+      auto rel_p = fs::proximate(p, __root);
       if (std::string_view{rel_p.c_str()}.starts_with("..")) {
         return std::unexpected{
           zip_error(std::format("{} is not a child of {}", p.c_str(), __root.c_str()))
