@@ -1,0 +1,13 @@
+from typing_extensions import ReadOnly
+
+class ApiContextError(Exception):
+  def __str__(self) -> str: ...
+  def __repr__(self) -> str: ...
+  def attr(self) -> str: ...
+
+class ApiContext:
+  auth_token: ReadOnly[str]
+  base_url: ReadOnly[str]
+  module_id : int
+  @staticmethod
+  def get_global_context() -> ApiContext: ...
