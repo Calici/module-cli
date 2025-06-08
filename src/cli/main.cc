@@ -1,5 +1,4 @@
 export module pharmaco.cli;
-export import :config;
 
 // Actions
 export import :test_action;

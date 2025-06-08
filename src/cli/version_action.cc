@@ -3,7 +3,6 @@ module;
 #include <optional>
 export module pharmaco.cli:version_action;
 import moderna.cli;
-import :config;
 import :loader;
 
 namespace pharmaco::cli {
@@ -11,10 +10,10 @@ namespace pharmaco::cli {
 
   struct version_list_action {
     void operator()(cli::app &app) {
-      auto file = load_module_config(app);
-      app.out("Versions List: ");
-      for (size_t i = 0; i != file.version_size(); i++) {
-        app.out("{}", file.get_version(i).value().get());
+      auto config = load_config_module();
+      cli::app::out("versions list: ");
+      for (const auto &version : config.versions) {
+        cli::app::out("{}", version);
       }
     }
   };
@@ -31,31 +30,50 @@ namespace pharmaco::cli {
         .help("The git tag to tag the version branch with on finalisation")
         .optional();
       app.parse_argument();
-      auto file = load_module_config(app);
-      auto new_version = app.test_expected(
+      auto config = load_config_module();
+      auto new_version = cli::app::test_expected(
         app.arguments().first_of("--version").value().cast<cli::app_version>(), 1, "Error: {}"
       );
-      auto description = app.arguments().first_of("--description").value();
+      auto description = app.arguments()
+                           .first_of("--description")
+                           .transform([](cli::argument_value &&arg) { return arg.raw_value; })
+                           .value();
       auto is_beta = !app.arguments().contains("--not_beta");
-      auto tag = app.arguments().first_of("--tag");
+      auto tag = app.arguments()
+                   .first_of("--tag")
+                   .transform([](cli::argument_value &&arg) { return arg.raw_value; })
+                   .value_or(std::format("v{}", new_version));
+      auto module_dir = get_default_config_module_path();
       /*
         Check existence
       */
-      auto add_res = file.add_version(new_version, description, is_beta, tag);
-      if (not add_res) {
-        app.error(1, "Version {} have already been previously added", new_version);
+      auto existing_version = config.get_version(new_version);
+      if (existing_version) {
+        cli::app::error(
+          1,
+          "version {} already exists with tag {}",
+          existing_version->get().version,
+          existing_version->get().git_tag
+        );
       }
-      app.test_expected(file.save(), 1, "Error saving module config: {}");
-      app.out("Added version {}", add_res.value().get());
+      auto add_res = config.set_version(
+        {.version = new_version,
+         .description{description},
+         .allow_use = true,
+         .is_beta = true,
+         .git_tag{tag}}
+      );
+      save_config_module(config);
+      cli::app::out("added version {}", add_res);
     }
   };
 
   struct version_config_action {
     std::pair<std::optional<bool>, std::optional<bool>> validate_arguments(cli::app &app) {
       if (app.arguments().contains("--allow") && app.arguments().contains("--no-allow")) {
-        app.error(1, "--allow and --no-allow cannot be simultaneously given");
+        cli::app::error(1, "--allow and --no-allow cannot be simultaneously given");
       } else if (app.arguments().contains("--beta") && app.arguments().contains("--no-beta")) {
-        app.error(1, "--beta and --no-beta cannot be simultaneously given");
+        cli::app::error(1, "--beta and --no-beta cannot be simultaneously given");
       }
       std::optional<bool> is_beta;
       std::optional<bool> allow_use;
@@ -67,13 +85,13 @@ namespace pharmaco::cli {
         allow_use = false;
       return std::pair{is_beta, allow_use};
     }
-    version_config get_version(cli::app &app, const module_config_file &file) {
-      auto parsed_version = app.test_expected(
-        app.arguments().first_of("--version").value().cast<cli::app_version>(), 1, "Error: {}"
+    config_version get_version(cli::app &app, const config_module &file) {
+      auto parsed_version = cli::app::test_expected(
+        app.arguments().first_of("--version").value().cast<cli::app_version>(), 1, "error: {}"
       );
       auto version = file.get_version(parsed_version);
       if (not version) {
-        app.error(1, "Version \"{}\" is not in the config file", parsed_version);
+        cli::app::error(1, "version \"{}\" is not in the config file", parsed_version);
       }
       return version.value();
     }
@@ -91,11 +109,11 @@ namespace pharmaco::cli {
         .optional();
       app.add_argument("--tag").help("Set a new tag for the specified version").optional();
       app.parse_argument();
-      auto file = load_module_config(app);
+      auto config = load_config_module();
       auto [is_beta, allow_use] = validate_arguments(app);
       auto description = app.arguments().first_of("--description");
       auto tag = app.arguments().first_of("--tag");
-      auto version = get_version(app, file);
+      auto version = get_version(app, config);
       if (is_beta) {
         version.is_beta = is_beta.value();
       }
@@ -108,9 +126,9 @@ namespace pharmaco::cli {
       if (tag) {
         version.git_tag = tag.value();
       }
-      auto set_res = file.set_version(version);
-      app.test_expected(file.save(), 1, "Error saving module config: {}");
-      app.out("Configured version {}", set_res.value().get());
+      auto set_res = config.set_version(version);
+      save_config_module(config);
+      cli::app::out("configured version {}", set_res);
     }
   };
 

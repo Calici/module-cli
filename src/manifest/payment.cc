@@ -3,7 +3,6 @@ module;
 export module pharmaco.manifest:payment;
 
 namespace pharmaco::manifest {
-  
   struct purchase_model {
 
   };
@@ -14,6 +13,6 @@ namespace pharmaco::manifest {
 
 
   struct price_model {
-
+    
   };
 };

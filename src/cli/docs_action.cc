@@ -8,7 +8,6 @@ export module pharmaco.cli:docs_action;
 import moderna.cli;
 import moderna.io;
 import moderna.process;
-import :config;
 import :loader;
 
 namespace pharmaco::cli {
@@ -21,22 +20,22 @@ namespace pharmaco::cli {
     fs::path get_temp_docs_config_path() const {
       return fs::current_path() / ".tmp" / "mkdocs.yml";
     }
-    auto write_temp_docs_config(cli::app &app, std::string_view docs_config) {
+    auto write_temp_docs_config(std::string_view docs_config) {
       auto config_path = get_temp_docs_config_path();
       fs::create_directories(config_path.parent_path());
-      return app.test_expected(
+      return cli::app::test_expected(
         io::open_file<io::open_mode::write_truncate>(config_path).and_then([&](auto &&file) {
           return file.write(docs_config);
         })
       );
     }
     /*
-      Read the temporary documentation config file. 
+      Read the temporary documentation config file.
     */
     auto read_docs_config(
-      cli::app &app, std::string_view module_name, std::string_view addr, std::string_view docs_dir
+      std::string_view module_name, std::string_view addr, std::string_view docs_dir
     ) {
-      return app.test_expected(
+      return cli::app::test_expected(
         io::open_file<io::open_mode::read>(assets_dir / "mkdocs.yml").and_then([&](auto &&config) {
           return config.read().transform([&](auto &&res) {
             res = std::regex_replace(res, std::regex("\\$MODULE_NAME"), module_name.data());
@@ -47,11 +46,11 @@ namespace pharmaco::cli {
         })
       );
     }
-    auto mkdocs_check(cli::app &app) {
-      return app.test_expected(proc::run({"which", "mkdocs"}));
+    auto mkdocs_check() {
+      return cli::app::test_expected(proc::run({"which", "mkdocs"}));
     }
-    auto mkdocs_run(cli::app &app, std::string_view docs_config) {
-      return app.test_expected(
+    auto mkdocs_run(std::string_view docs_config) {
+      return cli::app::test_expected(
         proc::run(
           proc::subprocess_argument{
             "mkdocs", "serve", "--config-file", get_temp_docs_config_path().c_str()
@@ -61,22 +60,23 @@ namespace pharmaco::cli {
       );
     }
     int get_serve_port(cli::app &app) {
-      return app.test_expected(app.arguments()
-                                 .first_of("--port")
-                                 .transform([&](auto &&v) { return v.template cast<int>(); })
-                                 .value_or(3000));
+      return cli::app::test_expected(app.arguments()
+                                       .first_of("--port")
+                                       .transform([&](auto &&v) { return v.template cast<int>(); })
+                                       .value_or(3000));
     }
     void operator()(cli::app &app) {
       app.add_argument("--port").help("The port to run the documentations at. Defaults to 3000");
       app.parse_argument();
       int port = get_serve_port(app);
-      auto config = load_module_config(app);
+      auto module_dir = fs::current_path();
+      auto config = load_config_module();
       auto dev_addr = std::format("localhost:{}", port);
-      auto docs_dir = config.docs();
-      auto docs_config = read_docs_config(app, config.name(), dev_addr, docs_dir.c_str());
-      write_temp_docs_config(app, docs_config);
-      mkdocs_check(app);
-      mkdocs_run(app, docs_config);
+      auto docs_dir = config.get_docs_directory(module_dir);
+      auto docs_config = read_docs_config(config.identity.name, dev_addr, docs_dir.c_str());
+      write_temp_docs_config(docs_config);
+      mkdocs_check();
+      mkdocs_run(docs_config);
     }
   };
   export struct docs_action {
