@@ -1,9 +1,9 @@
 module;
 #include <rfl/yaml.hpp>
-#include <optional>
 #include <filesystem>
+#include <optional>
 #include <rfl.hpp>
-export module pharmaco.core:module_dir;
+export module pharmaco.core.module_:dir;
 
 namespace pharmaco::core {
   namespace fs = std::filesystem;

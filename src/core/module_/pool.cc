@@ -6,7 +6,7 @@ module;
 #include <print>
 #include <thread>
 #include <vector>
-export module pharmaco.core:pool;
+export module pharmaco.core.module_:pool;
 import moderna.process;
 import moderna.generic;
 

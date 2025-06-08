@@ -1,19 +1,25 @@
 module;
+#include <format>
 #include <rfl.hpp>
 #include <string>
 #include <tuple>
-#include <string_view>
-export module pharmaco.core:module_run_data;
+export module pharmaco.core.module_:run_data;
 import moderna.generic;
 import moderna.io;
 import moderna.process;
-import :module_dir;
-import :module_runner;
+import :dir;
+import :runner;
 
 namespace pharmaco::core {
   namespace generic = moderna::generic;
   namespace proc = moderna::process;
   namespace io = moderna::io;
+
+  export enum struct run_mode { DEBUG, TEST, PRODUCTION };
+
+  /*
+    Encapsulates the run data required to run a module.
+  */
   export class module_run_data {
     using run_error_creator = generic::staged_error_creator<
       generic::make_static_string("OPEN_STDOUT_FILE"),
@@ -40,17 +46,47 @@ namespace pharmaco::core {
   public:
     module_dir work_dir;
     rfl::Generic::Object parameters;
-    std::string container_name;
+    std::string image_name;
+    run_mode mode = run_mode::DEBUG;
+    std::optional<std::string> container_name;
+    std::optional<std::string> shm_size;
+    std::vector<std::pair<fs::path, fs::path>> volumes;
+    std::optional<std::string> user;
 
     proc::subprocess_argument run_args() const {
-      proc::subprocess_argument args{
-        "docker",
-        "run",
-        "-v",
-        std::format("{}:/data", work_dir.run_path().c_str()),
-        container_name,
-        "/data/params.yml"
-      };
+      proc::subprocess_argument args{"docker", "run"};
+
+      // Map the container name to use to run the module.
+      if (container_name) {
+        args.add_argument("--name", *container_name);
+      }
+
+      // Map the SHM Size required to run the module.
+      if (shm_size) {
+        args.add_argument("--shm_size", *shm_size);
+      }
+      // Gets the user used to run the module.
+      if (user) {
+        args.add_argument("--user", *user);
+      }
+
+      // This section describes the running mode for the modules.
+      if (mode == run_mode::DEBUG) {
+        args.add_argument("--env", "MODULE_RUN_MODE=DEBUG");
+      } else if (mode == run_mode::TEST) {
+        args.add_argument("--env", "MODULE_RUN_MODE=TEST");
+      } else {
+        args.add_argument("--env", "MODULE_RUN_MODE=PRODUCTION");
+      }
+
+      // This section describes the volume mapping for the modules.
+      for (const auto &[host, cont] : volumes) {
+        args.add_argument("-v", std::format("{}:{}", host.c_str(), cont.c_str()));
+      }
+      args.add_argument("-v", std::format("{}:{}", work_dir.run_path().c_str(), "/data"));
+
+      // Finalizes and run the module with one positional argument, the parameters path
+      args.add_argument(image_name, work_dir.params_path());
       return args;
     }
 

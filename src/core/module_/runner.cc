@@ -6,7 +6,7 @@ module;
 #include <optional>
 #include <rfl.hpp>
 #include <thread>
-export module pharmaco.core:module_runner;
+export module pharmaco.core.module_:runner;
 import moderna.process;
 import moderna.generic;
 import moderna.io;
@@ -35,9 +35,8 @@ namespace pharmaco::core {
     proc::subprocess &process() {
       return __process;
     }
-    
-    template <class ...Args>
-    auto communicate(Args&& ...args) {
+
+    template <class... Args> auto communicate(Args &&...args) {
       return __stdin_writer.write(std::forward<Args>(args)...);
     }
 
