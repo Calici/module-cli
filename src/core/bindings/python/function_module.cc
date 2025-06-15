@@ -36,17 +36,17 @@ namespace pharmaco::core::python {
       }
     }
 
-    template <class T, class... Args>
-    std::expected<std::optional<T>, plugin_error> run_function(
+    template <class... Args>
+    std::expected<std::optional<py::object>, plugin_error> run_generic_function(
       std::string_view attr, Args &&...args
     ) const {
       return get_attribute<py::function>(attr).and_then(
-        [&](auto &&func) -> std::expected<std::optional<T>, plugin_error> {
+        [&](auto &&func) -> std::expected<std::optional<py::object>, plugin_error> {
           if (!func) {
             return std::nullopt;
           } else {
             try {
-              return func.value()(std::forward<Args>(args)...).template cast<T>();
+              return func.value()(std::forward<Args>(args)...);
             } catch (const std::exception &e) {
               return std::unexpected{plugin_error{attr.data(), e.what()}};
             }
@@ -55,15 +55,45 @@ namespace pharmaco::core::python {
       );
     }
     template <class T, class... Args>
+    std::expected<std::optional<T>, plugin_error> run_function(
+      std::string_view attr, Args &&...args
+    ) const {
+      using result_type = std::expected<std::optional<T>, plugin_error>;
+      return run_generic_function(attr, std::forward<Args>(args)...)
+        .and_then([&](std::optional<py::object> &&obj) -> result_type {
+          try {
+            return std::move(obj).transform([](py::object &&obj) { return obj.cast<T>(); });
+          } catch (const std::exception &e) {
+            return std::unexpected{plugin_error{attr.data(), e.what()}};
+          }
+        });
+    }
+    template <class... Args>
+    std::expected<py::object, plugin_error> run_required_generic_function(
+      std::string_view attr, Args &&...args
+    ) const {
+      return run_generic_function(attr, std::forward<Args>(args)...).and_then([&](auto &&opt) {
+        if (!opt) {
+          return std::expected<py::object, plugin_error>{
+            std::unexpected{plugin_error{attr, "not_found"}}
+          };
+        }
+        return std::expected<py::object, plugin_error>{std::move(opt).value()};
+      });
+    }
+    template <class T, class... Args>
     std::expected<T, plugin_error> run_required_function(
       std::string_view attr, Args &&...args
     ) const {
-      return run_function<T>(attr, std::forward<Args>(args)...).and_then([&](auto &&opt) {
-        if (!opt) {
-          return std::expected<T, plugin_error>{std::unexpected{plugin_error{attr, "not_found"}}};
-        }
-        return std::expected<T, plugin_error>{std::move(opt).value()};
-      });
+      using result_type = std::expected<T, plugin_error>;
+      return run_required_generic_function(attr, std::forward<Args>(args)...)
+        .and_then([&](py::object &&obj) -> result_type {
+          try {
+            return obj.cast<T>();
+          } catch (const std::exception &e) {
+            return std::unexpected{plugin_error{attr.data(), e.what()}};
+          }
+        });
     }
     template <class T>
     std::expected<T, plugin_error> get_required_attribute(std::string_view attr) const {
@@ -85,7 +115,7 @@ namespace pharmaco::core::python {
       }
     }
 
-    static std::expected<function_module, py::error_already_set> load(const fs::path &module_path) {
+    static std::expected<function_module, plugin_error> load(const fs::path &module_path) {
       try {
         // Some python shenanigans.
         // Read https://www.geeksforgeeks.org/how-to-import-a-python-module-given-the-full-path/
@@ -99,7 +129,7 @@ namespace pharmaco::core::python {
         spec.attr("loader").attr("exec_module")(module);
         return function_module{std::move(module), module_path};
       } catch (const py::error_already_set &e) {
-        return std::unexpected{e};
+        return std::unexpected{plugin_error{"", e.what()}};
       }
     }
   };

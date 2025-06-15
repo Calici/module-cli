@@ -8,7 +8,7 @@ import moderna.generic;
 namespace generic = moderna::generic;
 namespace PYBIND11_NAMESPACE {
   namespace detail {
-    template <class... Args>
+    export template <class... Args>
     struct type_caster<generic::variant<Args...>> : public type_caster<std::variant<Args...>> {
       PYBIND11_TYPE_CASTER(generic::variant<Args...>, const_name("GenericVariant"));
       using super = type_caster<std::variant<Args...>>;

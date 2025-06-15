@@ -2,10 +2,10 @@ module;
 #include <pybind11/pybind11.h>
 #include <rfl.hpp>
 export module pharmaco.core.bindings.python;
+export import :function_module;
 import :expected_caster;
 import :rfl_generic_caster;
 import :generic_variant_caster;
-export import :function_module;
 import moderna.generic;
 
 namespace py = pybind11;
