@@ -52,10 +52,26 @@ namespace pharmaco::core {
           v.variant()
         );
       }
+
+      friend bool operator==(const basic &l, const basic &r) {
+        return l.type.value() == r.type.value();
+      }
+
+      static basic make(const std::string &t) {
+        return basic{.type{t}};
+      }
     };
     struct literal {
       rfl::Literal<"literal"> type;
       std::vector<std::string> literals;
+
+      literal &add(std::string_view literal) {
+        auto it = std::ranges::find(literals, literal);
+        if (it == literals.end()) {
+          literals.emplace_back(literal);
+        }
+        return *this;
+      }
 
       std::optional<rfl::Generic> validate_parameters(
         const rfl::Generic &v,
@@ -78,6 +94,30 @@ namespace pharmaco::core {
           v.variant()
         );
       }
+
+      friend bool operator==(const literal &l, const literal &r) {
+        if (l.literals.size() != r.literals.size()) {
+          return false;
+        }
+        for (const auto &l_l : l.literals) {
+          auto it = std::ranges::find(r.literals, l_l);
+          if (it == r.literals.end()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      static literal make() {
+        return literal{.type{"literal"}, .literals{}};
+      }
+      template <class... Args>
+        requires(std::is_constructible_v<std::string_view, Args> && ...)
+      static literal make(Args &&...args) {
+        auto schema = make();
+        (schema.add(args), ...);
+        return schema;
+      }
     };
     struct list {
       rfl::Literal<"list"> type;
@@ -95,7 +135,6 @@ namespace pharmaco::core {
         return std::visit(
           [&](const auto &v) -> std::optional<rfl::Generic::Array> {
             using value_type = std::decay_t<decltype(v)>;
-            type_schema_validation_error errors;
             if constexpr (std::same_as<value_type, rfl::Generic::Array>) {
               rfl::Generic::Array arr;
               size_t pre_error_size = errors.size();
@@ -107,7 +146,7 @@ namespace pharmaco::core {
                   arr.emplace_back(std::move(res.value()));
                 }
               }
-              if (pre_error_size == errors.size()) {
+              if (pre_error_size != errors.size()) {
                 return std::nullopt;
               }
               return arr;
@@ -118,6 +157,14 @@ namespace pharmaco::core {
           },
           v.variant()
         );
+      }
+
+      friend bool operator==(const list &l, const list &r) {
+        return *l.child == *r.child;
+      }
+
+      static list make(type_schema child) {
+        return list{.type{"list"}, .child{std::make_unique<type_schema>(std::move(child))}};
       }
     };
     struct record {
@@ -158,10 +205,23 @@ namespace pharmaco::core {
           v.variant()
         );
       }
+
+      friend bool operator==(const record &l, const record &r) {
+        return *l.child == *r.child;
+      }
+
+      static record make(type_schema child) {
+        return record{.type{"record"}, .child{std::make_unique<type_schema>(std::move(child))}};
+      }
     };
     struct typed_record {
       rfl::Literal<"typed_record"> type;
       generic::key_vector<std::string, type_schema> child;
+
+      typed_record &add(const std::string &name, const type_schema &schema) {
+        child.insert(name, schema);
+        return *this;
+      }
 
       std::optional<rfl::Generic::Object> validate_parameters(
         const rfl::Generic::Object &v,
@@ -225,10 +285,35 @@ namespace pharmaco::core {
           .or_else([&]() { return std::optional{result_type{std::unexpected{std::move(errors)}}}; })
           .value();
       }
+
+      friend bool operator==(const typed_record &l, const typed_record &r) {
+        if (l.child.size() != r.child.size()) {
+          return false;
+        }
+        for (const auto &[l_name, l_schema] : l.child) {
+          auto r_child = r.child.get(l_name);
+          if (!r_child || r_child->get() != l_schema) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      static typed_record make() {
+        return typed_record{.type{"typed_record"}, .child{}};
+      }
     };
     struct _union {
       rfl::Literal<"union"> type;
       std::vector<type_schema> child;
+
+      _union &add(const type_schema &schema) {
+        auto it = std::ranges::find(child, schema);
+        if (it == child.end()) {
+          child.emplace_back(schema);
+        }
+        return *this;
+      }
 
       std::optional<rfl::Generic> validate_parameters(
         const rfl::Generic &v,
@@ -243,6 +328,23 @@ namespace pharmaco::core {
         }
         errors.insert_type_error(current_path, "No matching type in union");
         return std::nullopt;
+      }
+
+      friend bool operator==(const _union &l, const _union &r) {
+        if (l.child.size() != r.child.size()) {
+          return false;
+        }
+        for (const auto &l_schema : l.child) {
+          auto it = std::ranges::find(r.child, l_schema);
+          if (it == r.child.end()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      static _union make() {
+        return _union{.type{"union"}, .child{}};
       }
     };
 
@@ -294,6 +396,20 @@ namespace pharmaco::core {
         } else {
           return expected_type{std::unexpected{std::move(errors)}};
         }
+      });
+    }
+
+    friend bool operator==(const type_schema &l, const type_schema &r) {
+      return l.value.visit([&](const auto &l) {
+        return r.value.visit([&](const auto &r) {
+          using l_value_type = std::decay_t<decltype(l)>;
+          using r_value_type = std::decay_t<decltype(r)>;
+          if constexpr (std::same_as<l_value_type, r_value_type>) {
+            return l == r;
+          } else {
+            return false;
+          }
+        });
       });
     }
   };
